@@ -2,34 +2,34 @@ import { Linkedin, ExternalLink, Mail, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-16">
+    <footer className="bg-background border-t py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">SparcX Solutions</h3>
-            <p className="text-primary-foreground/80 leading-relaxed">
+            <h3 className="text-2xl font-bold text-foreground">SparcX Solutions</h3>
+            <p className="text-muted-foreground leading-relaxed">
               Building modern, scalable web solutions with precision and expertise. 
               Your trusted partner for full-stack development.
             </p>
             <div className="flex space-x-4">
               <a
                 href="https://linkedin.com/company/sparcx-solutions"
-                className="text-primary-foreground/60 hover:text-accent transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href="mailto:hello@sparcx.in"
-                className="text-primary-foreground/60 hover:text-accent transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
                 <Mail className="h-5 w-5" />
               </a>
               <a
                 href="https://sparcx.in"
-                className="text-primary-foreground/60 hover:text-accent transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Website"
               >
                 <ExternalLink className="h-5 w-5" />
@@ -39,19 +39,19 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4 text-accent">Services</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#services" className="hover:text-accent transition-colors">Full Stack Development</a></li>
-              <li><a href="#services" className="hover:text-accent transition-colors">API Development</a></li>
-              <li><a href="#services" className="hover:text-accent transition-colors">Cloud Deployment</a></li>
-              <li><a href="#services" className="hover:text-accent transition-colors">UI/UX Integration</a></li>
+            <h4 className="font-semibold mb-4 text-primary">Services</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="#services" className="hover:text-primary transition-colors">Full Stack Development</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">API Development</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Cloud Deployment</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">UI/UX Integration</a></li>
             </ul>
           </div>
 
           {/* Technologies */}
           <div>
-            <h4 className="font-semibold mb-4 text-accent">Technologies</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
+            <h4 className="font-semibold mb-4 text-primary">Technologies</h4>
+            <ul className="space-y-2 text-muted-foreground">
               <li>React & Next.js</li>
               <li>Node.js & Express</li>
               <li>MongoDB & PostgreSQL</li>
@@ -61,8 +61,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-accent">Contact</h4>
-            <div className="space-y-2 text-primary-foreground/80">
+            <h4 className="font-semibold mb-4 text-primary">Contact</h4>
+            <div className="space-y-2 text-muted-foreground">
               <p>hello@sparcx.in</p>
               <p>+1 (234) 567-8900</p>
               <p className="text-sm">
@@ -74,13 +74,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/20 pt-8">
+        <div className="border-t pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-primary-foreground/60 text-sm">
+            <p className="text-muted-foreground text-sm">
               © 2024 SparcX Solutions. All rights reserved.
             </p>
-            <p className="text-primary-foreground/60 text-sm flex items-center">
-              Made with <Heart className="h-4 w-4 text-accent mx-1" /> by the SparcX team
+            <p className="text-muted-foreground text-sm flex items-center">
+              Made with <Heart className="h-4 w-4 text-primary mx-1" /> by the SparcX team
             </p>
           </div>
         </div>
