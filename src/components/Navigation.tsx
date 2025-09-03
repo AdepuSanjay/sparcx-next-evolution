@@ -19,11 +19,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="px-3 py-1 bg-primary rounded-lg">
-              <h1 className="text-2xl font-bold text-primary-foreground">
-                SparcX Solutions
-              </h1>
-            </div>
+            <h1 className="text-xl md:text-2xl font-bold text-foreground">
+              SparcX Solutions
+            </h1>
           </div>
 
           {/* Desktop Navigation */}

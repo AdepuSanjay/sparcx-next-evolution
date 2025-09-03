@@ -73,13 +73,13 @@ const ServicesSection = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
             🚀 Our Services
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
             Comprehensive{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-foreground">
               Development Solutions
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
             From concept to deployment, we provide end-to-end development services 
             that help your business grow and succeed in the digital landscape.
           </p>
@@ -98,8 +98,8 @@ const ServicesSection = () => {
                 {/* Icon */}
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl mb-6 ${
                   service.highlight 
-                    ? 'bg-gradient-accent text-accent-foreground' 
-                    : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'
+                    ? 'bg-foreground text-background' 
+                    : 'bg-muted text-foreground group-hover:bg-foreground group-hover:text-background'
                 } transition-all duration-300`}>
                   {service.icon}
                 </div>
@@ -138,8 +138,8 @@ const ServicesSection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
+          <div className="bg-background border rounded-2xl p-8 max-w-4xl mx-auto">
+            <h3 className="text-xl md:text-2xl font-bold mb-4">
               Ready to Start Your Project?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">

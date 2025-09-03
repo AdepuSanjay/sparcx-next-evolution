@@ -13,14 +13,14 @@ const Hero = () => {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm">
                 ✨ Full Stack Development Excellence
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 We Build{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                <span className="text-foreground">
                   Modern, Scalable
                 </span>{" "}
                 Web Solutions
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
                 As a dedicated team of full stack developers, we create reliable, 
                 high-performance digital products tailored to your goals. From backend 
                 APIs to modern user interfaces, we engineer every layer with precision.
@@ -28,25 +28,31 @@ const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 py-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">Projects Delivered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">4+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+            <div className="bg-background border rounded-2xl p-6 my-8">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-foreground">50+</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Projects Completed</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-foreground">4+</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Years of Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-foreground">20+</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Technologies Mastered</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-foreground">100%</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Client Satisfaction</div>
+                </div>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="corporate" size="lg" className="group">
-                Start Your Project
+              <Button variant="outline" size="lg" className="group bg-background text-foreground border-border hover:bg-muted">
+                Learn More About Our Process
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" size="lg" className="group">

@@ -69,13 +69,13 @@ const TeamSection = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
             👥 Meet Our Team
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
             The Experts Behind{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-foreground">
               Your Success
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Our diverse team of full stack developers, designers, and architects 
             work together to deliver exceptional digital solutions.
           </p>
@@ -88,7 +88,7 @@ const TeamSection = () => {
               <div className="p-6">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden ring-4 ring-accent/20 group-hover:ring-accent/40 transition-all">
+                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden ring-4 ring-border group-hover:ring-foreground transition-all">
                     <img
                       src={member.image}
                       alt={member.name}

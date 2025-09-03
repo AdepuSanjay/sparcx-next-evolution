@@ -31,16 +31,16 @@ const AboutSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-muted text-foreground font-medium text-sm mb-4">
               About SparcX Solutions
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
               Crafting Digital Excellence{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="text-foreground">
                 Since Day One
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               We are a forward-thinking software development company specializing in full-stack 
               web applications, modern UI/UX design, and scalable cloud solutions. Our passion 
               for technology drives us to create exceptional digital experiences that transform businesses.
@@ -50,7 +50,7 @@ const AboutSection = () => {
           {/* Story */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-foreground">Our Story</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground">Our Story</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Founded with a vision to bridge the gap between innovative technology and practical 
                 business solutions, SparcX Solutions has grown from a small team of passionate developers 
@@ -67,27 +67,26 @@ const AboutSection = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-primary p-8 rounded-2xl text-primary-foreground">
+              <div className="bg-background border p-8 rounded-2xl">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm opacity-90">Projects Completed</span>
-                    <span className="text-3xl font-bold">50+</span>
+                    <span className="text-sm text-muted-foreground">Projects Completed</span>
+                    <span className="text-2xl md:text-3xl font-bold text-foreground">50+</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm opacity-90">Years of Experience</span>
-                    <span className="text-3xl font-bold">4+</span>
+                    <span className="text-sm text-muted-foreground">Years of Experience</span>
+                    <span className="text-2xl md:text-3xl font-bold text-foreground">4+</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm opacity-90">Technologies Mastered</span>
-                    <span className="text-3xl font-bold">20+</span>
+                    <span className="text-sm text-muted-foreground">Technologies Mastered</span>
+                    <span className="text-2xl md:text-3xl font-bold text-foreground">20+</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm opacity-90">Client Satisfaction</span>
-                    <span className="text-3xl font-bold">100%</span>
+                    <span className="text-sm text-muted-foreground">Client Satisfaction</span>
+                    <span className="text-2xl md:text-3xl font-bold text-foreground">100%</span>
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-accent rounded-full blur-xl opacity-60"></div>
             </div>
           </div>
 
@@ -95,9 +94,9 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="group">
-                <div className="bg-card border border-border rounded-xl p-6 h-full hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <feature.icon className="h-6 w-6 text-primary-foreground" />
+                <div className="bg-card border border-border rounded-xl p-6 h-full hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+                  <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <feature.icon className="h-6 w-6" />
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">{feature.title}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>

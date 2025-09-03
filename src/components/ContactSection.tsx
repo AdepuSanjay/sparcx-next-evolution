@@ -13,13 +13,13 @@ const ContactSection = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
             📞 Get In Touch
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-foreground">
               Start Building?
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Let's discuss your project and how we can help bring your vision to life. 
             We're here to answer your questions and provide expert guidance.
           </p>
@@ -28,7 +28,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <Card className="p-8 shadow-card">
-            <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-6">Send us a message</h3>
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -114,8 +114,8 @@ const ContactSection = () => {
             <div className="space-y-4">
               <Card className="p-6 hover:shadow-card transition-shadow">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary-foreground" />
+                  <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-6 w-6" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email Us</h4>
@@ -134,8 +134,8 @@ const ContactSection = () => {
 
               <Card className="p-6 hover:shadow-card transition-shadow">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-accent-foreground" />
+                  <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-6 w-6" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Call Us</h4>
@@ -154,8 +154,8 @@ const ContactSection = () => {
 
               <Card className="p-6 hover:shadow-card transition-shadow">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-6 w-6 text-primary-foreground" />
+                  <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-6 w-6" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Business Hours</h4>
@@ -171,8 +171,8 @@ const ContactSection = () => {
             </div>
 
             {/* Quick Start CTA */}
-            <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-              <h3 className="text-xl font-bold mb-4">Ready to Get Started?</h3>
+            <Card className="p-8 bg-background border">
+              <h3 className="text-lg md:text-xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-muted-foreground mb-6">
                 Schedule a free consultation to discuss your project requirements 
                 and get a detailed proposal within 24 hours.

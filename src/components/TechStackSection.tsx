@@ -69,13 +69,13 @@ const TechStackSection = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
             ⚡ Technology Stack
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
             Powered by{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-foreground">
               Modern Technologies
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
             We leverage the latest and most reliable technologies to build fast, 
             scalable, and secure applications that grow with your business.
           </p>
@@ -127,12 +127,12 @@ const TechStackSection = () => {
         </div>
 
         {/* Development Process */}
-        <div className="bg-card rounded-2xl p-8 shadow-card">
-          <h3 className="text-2xl font-bold text-center mb-8">Our Development Approach</h3>
+        <div className="bg-background border rounded-2xl p-8">
+          <h3 className="text-xl md:text-2xl font-bold text-center mb-8">Our Development Approach</h3>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-primary-foreground font-bold text-xl">1</span>
+              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="font-bold text-xl">1</span>
               </div>
               <h4 className="font-semibold mb-2">Planning & Analysis</h4>
               <p className="text-sm text-muted-foreground">
@@ -140,8 +140,8 @@ const TechStackSection = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-accent-foreground font-bold text-xl">2</span>
+              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="font-bold text-xl">2</span>
               </div>
               <h4 className="font-semibold mb-2">Design & Architecture</h4>
               <p className="text-sm text-muted-foreground">
@@ -149,8 +149,8 @@ const TechStackSection = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-primary-foreground font-bold text-xl">3</span>
+              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="font-bold text-xl">3</span>
               </div>
               <h4 className="font-semibold mb-2">Development & Testing</h4>
               <p className="text-sm text-muted-foreground">
@@ -158,8 +158,8 @@ const TechStackSection = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-accent-foreground font-bold text-xl">4</span>
+              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="font-bold text-xl">4</span>
               </div>
               <h4 className="font-semibold mb-2">Deployment & Support</h4>
               <p className="text-sm text-muted-foreground">
