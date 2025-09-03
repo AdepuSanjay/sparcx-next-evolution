@@ -26,15 +26,15 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-background to-muted/20">
+    <section id="about" className="py-24 bg-gradient-to-b from-background to-muted/20 animate-fade-in">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-slide-up">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-muted text-foreground font-medium text-sm mb-4">
               About SparcX Solutions
             </div>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="mb-6">
               Crafting Digital Excellence{" "}
               <span className="text-foreground">
                 Since Day One
@@ -49,8 +49,8 @@ const AboutSection = () => {
 
           {/* Story */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">Our Story</h3>
+            <div className="space-y-6 animate-slide-up">
+              <h3 className="text-foreground">Our Story</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Founded with a vision to bridge the gap between innovative technology and practical 
                 business solutions, SparcX Solutions has grown from a small team of passionate developers 
@@ -60,14 +60,14 @@ const AboutSection = () => {
                 We believe in the power of clean code, intuitive design, and strategic thinking to 
                 create applications that not only meet today's needs but scale for tomorrow's challenges.
               </p>
-              <Button variant="corporate" className="group">
+              <Button variant="corporate" className="group hover-glow">
                 Learn More About Our Process
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
             
-            <div className="relative">
-              <div className="bg-background border p-8 rounded-2xl">
+            <div className="relative animate-scale-in">
+              <div className="bg-background border p-8 rounded-2xl hover-lift">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Projects Completed</span>
@@ -91,11 +91,11 @@ const AboutSection = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
             {features.map((feature, index) => (
               <div key={index} className="group">
-                <div className="bg-card border border-border rounded-xl p-6 h-full hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="bg-card border border-border rounded-xl p-6 h-full hover:shadow-card transition-all duration-300 hover-lift">
+                  <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform animate-bounce-in">
                     <feature.icon className="h-6 w-6" />
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">{feature.title}</h4>
