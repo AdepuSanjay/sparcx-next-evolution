@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,11 +19,15 @@ const Navigation = () => {
     <nav className="fixed top-0 w-full z-50 bg-card/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo only */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl md:text-2xl font-bold text-foreground">
-              SparcX Solutions
-            </h1>
+            <img
+              src="https://res.cloudinary.com/dppiuypop/image/upload/v1756998759/uploads/uoi5czmrusqbfoxhqqrk.jpg" // put your logo file in /public
+              alt="SparcX Logo"
+              width={120} // adjust size as needed
+              height={40}
+              priority
+            />
           </div>
 
           {/* Desktop Navigation */}
