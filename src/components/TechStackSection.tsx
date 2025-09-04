@@ -1,10 +1,13 @@
 import { Card } from "@/components/ui/card";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { SiNextdotjs, SiExpress, SiMongodb, SiPostgresql, SiDjango, SiCloudinary } from "react-icons/si";
 
 interface Technology {
   name: string;
   category: string;
   description: string;
   color: string;
+  icon: JSX.Element;
 }
 
 const technologies: Technology[] = [
@@ -12,49 +15,57 @@ const technologies: Technology[] = [
     name: "React.js",
     category: "Frontend",
     description: "Modern UI library for building interactive user interfaces",
-    color: "from-blue-500 to-cyan-500"
+    color: "text-[#61DAFB]",
+    icon: <FaReact className="w-8 h-8" />
   },
   {
     name: "Next.js",
     category: "Framework",
     description: "Full-stack React framework with server-side rendering",
-    color: "from-gray-800 to-gray-600"
+    color: "text-black",
+    icon: <SiNextdotjs className="w-8 h-8" />
   },
   {
     name: "Node.js",
     category: "Backend",
     description: "JavaScript runtime for building scalable server applications",
-    color: "from-green-600 to-green-400"
+    color: "text-[#68A063]",
+    icon: <FaNodeJs className="w-8 h-8" />
   },
   {
     name: "Express",
     category: "Backend",
     description: "Fast, minimalist web framework for Node.js applications",
-    color: "from-gray-700 to-gray-500"
+    color: "text-gray-700",
+    icon: <SiExpress className="w-8 h-8" />
   },
   {
     name: "MongoDB",
     category: "Database",
     description: "NoSQL database for modern applications with flexible schemas",
-    color: "from-green-700 to-green-500"
+    color: "text-[#4DB33D]",
+    icon: <SiMongodb className="w-8 h-8" />
   },
   {
     name: "PostgreSQL",
     category: "Database",
     description: "Advanced relational database with powerful features",
-    color: "from-blue-700 to-blue-500"
+    color: "text-[#336791]",
+    icon: <SiPostgresql className="w-8 h-8" />
   },
   {
     name: "Django",
     category: "Backend",
     description: "High-level Python web framework for rapid development",
-    color: "from-green-800 to-green-600"
+    color: "text-[#092E20]",
+    icon: <SiDjango className="w-8 h-8" />
   },
   {
     name: "Cloudinary",
     category: "Cloud Services",
     description: "Cloud-based media management and optimization platform",
-    color: "from-orange-500 to-yellow-500"
+    color: "text-[#F38020]",
+    icon: <SiCloudinary className="w-8 h-8" />
   }
 ];
 
@@ -98,13 +109,9 @@ const TechStackSection = () => {
           {technologies.map((tech) => (
             <Card key={tech.name} className="group hover:shadow-card transition-all duration-300 hover:-translate-y-1">
               <div className="p-6">
-                {/* Tech Icon/Logo Area */}
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${tech.color} mb-4 flex items-center justify-center`}>
-                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">
-                      {tech.name.charAt(0)}
-                    </span>
-                  </div>
+                {/* Tech Icon */}
+                <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-4">
+                  <span className={`${tech.color}`}>{tech.icon}</span>
                 </div>
 
                 {/* Content */}
@@ -124,49 +131,6 @@ const TechStackSection = () => {
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Development Process */}
-        <div className="bg-background border rounded-2xl p-8">
-          <h3 className="text-xl md:text-2xl font-bold text-center mb-8">Our Development Approach</h3>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="font-bold text-xl">1</span>
-              </div>
-              <h4 className="font-semibold mb-2">Planning & Analysis</h4>
-              <p className="text-sm text-muted-foreground">
-                Understanding requirements and choosing the right tech stack
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="font-bold text-xl">2</span>
-              </div>
-              <h4 className="font-semibold mb-2">Design & Architecture</h4>
-              <p className="text-sm text-muted-foreground">
-                Creating scalable architecture and user-centered designs
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="font-bold text-xl">3</span>
-              </div>
-              <h4 className="font-semibold mb-2">Development & Testing</h4>
-              <p className="text-sm text-muted-foreground">
-                Agile development with continuous testing and code reviews
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-foreground text-background rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="font-bold text-xl">4</span>
-              </div>
-              <h4 className="font-semibold mb-2">Deployment & Support</h4>
-              <p className="text-sm text-muted-foreground">
-                Production deployment with ongoing maintenance and support
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
