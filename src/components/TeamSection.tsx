@@ -66,9 +66,9 @@ const TeamSection = () => {
   const [shuffledMembers, setShuffledMembers] = useState<TeamMember[]>([]);
 
   useEffect(() => {
-    const shuffled = [...teamMembers].s"ort(() => Math.random() - 0.5);
-    setShuffledMembers(shuffled);
-  }, []);
+  const shuffled = [...teamMembers].sort(() => Math.random() - 0.5);
+  setShuffledMembers(shuffled);
+}, []);
 
   return (
     <section id="team" className="py-24 bg-secondary/30">
