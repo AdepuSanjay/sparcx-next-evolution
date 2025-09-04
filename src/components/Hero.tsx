@@ -31,19 +31,19 @@ const Hero = () => {
             <div className="bg-background border rounded-2xl p-6 my-8 animate-scale-in">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-foreground">50+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">50+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Projects Completed</div>
                 </div>
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-foreground">4+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">4+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Years of Experience</div>
                 </div>
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-foreground">20+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">20+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Technologies Mastered</div>
                 </div>
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-foreground">100%</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">100%</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Client Satisfaction</div>
                 </div>
               </div>
