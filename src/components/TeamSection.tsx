@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Linkedin, ExternalLink, Mail } from "lucide-react";
+import { useState, useEffect } from "react";
 import teamMember1 from "@/assets/team-member-1.jpg";
 import teamMember2 from "@/assets/team-member-2.jpg";
 import teamMember3 from "@/assets/team-member-3.jpg";
@@ -61,6 +62,14 @@ const teamMembers: TeamMember[] = [
 ];
 
 const TeamSection = () => {
+  // Randomize team members order on each render
+  const [shuffledMembers, setShuffledMembers] = useState<TeamMember[]>([]);
+
+  useEffect(() => {
+    const shuffled = [...teamMembers].sort(() => Math.random() - 0.5);
+    setShuffledMembers(shuffled);
+  }, []);
+
   return (
     <section id="team" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -83,7 +92,7 @@ const TeamSection = () => {
 
         {/* Team Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member) => (
+          {shuffledMembers.map((member) => (
             <Card key={member.name} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
               <div className="p-6">
                 {/* Profile Image */}

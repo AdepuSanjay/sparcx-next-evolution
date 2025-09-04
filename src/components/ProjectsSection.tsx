@@ -71,6 +71,26 @@ const ProjectsSection = () => {
             </p>
           </div>
 
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 animate-fade-in">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">50+</div>
+              <div className="text-muted-foreground">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">4+</div>
+              <div className="text-muted-foreground">Years of Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">20+</div>
+              <div className="text-muted-foreground">Technologies Mastered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">100%</div>
+              <div className="text-muted-foreground">Client Satisfaction</div>
+            </div>
+          </div>
+
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {projects.map((project, index) => (
