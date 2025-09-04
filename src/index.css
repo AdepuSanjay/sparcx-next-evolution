@@ -149,11 +149,11 @@ All colors MUST be HSL.
   }
   
   h1 {
-    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+    @apply text-2xl sm:text-4xl lg:text-5xl xl:text-6xl;
   }
   
   h2 {
-    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+    @apply text-xl sm:text-3xl lg:text-4xl xl:text-5xl;
   }
   
   h3 {
