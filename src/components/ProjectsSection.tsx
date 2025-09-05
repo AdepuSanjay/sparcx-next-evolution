@@ -49,19 +49,9 @@ const projects = [
     category: "AI / Education",
     icon: Globe
   },
+    
   {
     id: 5,
-    title: "Attendance Portal",
-    description: "A portal for managing attendance built with Django and SQL (details beyond the tech stack were limited).",
-    technologies:  ["React", "Node.js", "Express", "MongoDB"] ,
-    image: "https://images.unsplash.com/photo-1581093588401-50e28910654f?w=600&h=400&fit=crop",
-    liveUrl: "https://tkrcet.vercel.app",
-    githubUrl: "#",
-    category: "Education / Admin",
-    icon: Globe
-  },
-  {
-    id: 6,
     title: "E-Commerce – Swetha Collections",
     description: "An online boutique offering a curated range of Indian ethnic wear—chudidhars, lehengas, saris, and more—combining traditional craftsmanship with modern comfort and style.",
     technologies:["Django", "SQL"],
@@ -70,6 +60,16 @@ const projects = [
     githubUrl: "#",
     category: "E-Commerce",
     icon: Globe
+    }
+  {
+    id: 6,
+    title: "Attendance Portal",
+    description: "A portal for managing attendance built with Django and SQL (details beyond the tech stack were limited).",
+    technologies:  ["React", "Node.js", "Express", "MongoDB"] ,
+    image: "https://res.cloudinary.com/dppiuypop/image/upload/v1757057761/uploads/exxl9xfauvq6crfvmtpe.png",
+    liveUrl: "https://tkrcet.vercel.app",
+    githubUrl: "#",
+    category: "Education / Admin",
   }
 ];
 
