@@ -8,12 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
           
-            <img
-              src="https://res.cloudinary.com/dppiuypop/image/upload/v1756998759/uploads/uoi5czmrusqbfoxhqqrk.jpg"
-              alt="SparcX Logo"
-              width={120}
-              height={40}
-            />
+            
       
             <p className="text-muted-foreground leading-relaxed">
               Building modern, scalable web solutions with precision and expertise. 
