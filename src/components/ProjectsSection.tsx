@@ -2,53 +2,79 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Globe, Smartphone, Database, Zap } from "lucide-react";
 
 const ProjectsSection = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "Modern online shopping platform with real-time inventory management and secure payment processing.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Web Application",
-      icon: Globe
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates and team communication features.",
-      technologies: ["TypeScript", "React", "PostgreSQL", "Socket.io"],
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Productivity",
-      icon: Zap
-    },
-    {
-      id: 3,
-      title: "Mobile Banking App",
-      description: "Secure mobile banking application with biometric authentication and real-time transaction tracking.",
-      technologies: ["React Native", "Node.js", "PostgreSQL", "JWT"],
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Mobile App",
-      icon: Smartphone
-    },
-    {
-      id: 4,
-      title: "Data Analytics Dashboard",
-      description: "Comprehensive analytics platform for business intelligence with interactive charts and reporting.",
-      technologies: ["React", "D3.js", "Python", "FastAPI"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Analytics",
-      icon: Database
-    }
-  ];
 
+
+const projects = [
+  {
+    id: 1,
+    title: "Healthcare – Textas Healthcare",
+    description: "Home and hospice care delivered with compassion—providing personalized nursing, rehabilitation, and post-surgery support in the comfort of patients’ homes.",
+    technologies: ["Next.js"],
+    image: "https://images.unsplash.com/photo-1580281657521-0a15f892dc1e?w=600&h=400&fit=crop",
+    liveUrl: "https://textashealthcare.in",
+    githubUrl: "#",
+    category: "Healthcare",
+    icon: Globe
+  },
+  {
+    id: 2,
+    title: "Zebotic Projects (Portfolio & Final Year Project Mentorship)",
+    description: "Engineering-focused platform offering 1-on-1 mentorship for B.Tech final year projects—supporting students from topic selection to viva, boasting a 100% working project guarantee.",
+    technologies: ["Next.js", "React", "Node.js", "Express", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1537432376769-00a6f52e59f9?w=600&h=400&fit=crop",
+    liveUrl: "https://zeboticprojects.in",
+    githubUrl: "#",
+    category: "Portfolio / Mentorship",
+    icon: Globe
+  },
+  {
+    id: 3,
+    title: "Trading Application – AlgoDukaan",
+    description: "An algorithmic trading platform providing tools to build, manage, and monetize trading strategies through an intuitive marketplace.",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1556827634-0e9a857c7c59?w=600&h=400&fit=crop",
+    liveUrl: "https://algodukaan.store",
+    githubUrl: "#",
+    category: "Trading / FinTech",
+    icon: Globe
+  },
+  {
+    id: 4,
+    title: "AI Assistant – StudyMate",
+    description: "A smart AI study buddy tailored for IGCSE students—powered by Microsoft, it offers revision support, flexible study plans, multilingual assistance (English, Malay, Chinese), and 24/7 learning help.",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1584697964154-d33ac105f0a0?w=600&h=400&fit=crop",
+    liveUrl: "https://studymate-swart.vercel.app",
+    githubUrl: "#",
+    category: "AI / Education",
+    icon: Globe
+  },
+  {
+    id: 5,
+    title: "Attendance Portal",
+    description: "A portal for managing attendance built with Django and SQL (details beyond the tech stack were limited).",
+    technologies: ["Django", "SQL"],
+    image: "https://images.unsplash.com/photo-1581093588401-50e28910654f?w=600&h=400&fit=crop",
+    liveUrl: "https://tkrcet.vercel.app",
+    githubUrl: "#",
+    category: "Education / Admin",
+    icon: Globe
+  },
+  {
+    id: 6,
+    title: "E-Commerce – Swetha Collections",
+    description: "An online boutique offering a curated range of Indian ethnic wear—chudidhars, lehengas, saris, and more—combining traditional craftsmanship with modern comfort and style.",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=400&fit=crop",
+    liveUrl: "https://swethacollections.shop",
+    githubUrl: "#",
+    category: "E-Commerce",
+    icon: Globe
+  }
+];
+
+
+  
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-muted/20 to-background animate-fade-in">
       <div className="container mx-auto px-4">
