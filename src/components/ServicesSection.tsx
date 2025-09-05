@@ -146,10 +146,12 @@ const ServicesSection = () => {
               Let's discuss how we can help bring your ideas to life with our comprehensive 
               development services and expertise.
             </p>
-            <Button variant="corporate" size="lg" className="group hover-glow">
-              Get Free Consultation
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <a href="#contact">
+              <Button variant="corporate" size="lg" className="group hover-glow">
+                Get Free Consultation
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </div>
         </div>
       </div>

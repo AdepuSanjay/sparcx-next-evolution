@@ -147,10 +147,12 @@ const ProjectsSection = () => {
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Let's discuss your ideas and bring them to life with our expertise in modern web development and innovative solutions.
               </p>
-              <Button variant="corporate" size="lg" className="hover-glow">
-                Start Your Project
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </Button>
+              <a href="#contact">
+                <Button variant="corporate" size="lg" className="hover-glow">
+                  Start Your Project
+                  <ExternalLink className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
