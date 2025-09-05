@@ -149,16 +149,23 @@ const projects = [
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex gap-3">
-                    <Button variant="outline" size="sm" className="group/btn hover:bg-primary hover:text-primary-foreground hover:border-primary">
-                      <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:rotate-45 transition-transform" />
-                      Live Demo
-                    </Button>
-                    <Button variant="ghost" size="sm" className="hover:text-primary">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </Button>
-                  </div>
+                  {/* Project Links */}
+<div className="flex gap-3">
+  <a 
+    href={project.liveUrl} 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <Button 
+      variant="outline" 
+      size="sm" 
+      className="group/btn hover:bg-primary hover:text-primary-foreground hover:border-primary"
+    >
+      <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:rotate-45 transition-transform" />
+      Live Demo
+    </Button>
+  </a>
+</div>
                 </div>
               </div>
             ))}
