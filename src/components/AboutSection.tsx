@@ -34,13 +34,13 @@ const AboutSection = () => {
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-muted text-foreground font-medium text-sm mb-4">
               About SparcX Solutions
             </div>
-            <h2 className="mb-6">
+            <h2 className="text-xl md:text-3xl lg:text-4xl mb-6">
               Crafting Digital Excellence{" "}
               <span className="text-foreground">
                 Since Day One
               </span>
             </h2>
-            <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-sm md:text-base lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto text-justify">
               We are a forward-thinking software development company specializing in full-stack 
               web applications, modern UI/UX design, and scalable cloud solutions. Our passion 
               for technology drives us to create exceptional digital experiences that transform businesses.
@@ -50,13 +50,13 @@ const AboutSection = () => {
           {/* Story */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6 animate-slide-up">
-              <h3 className="text-foreground">Our Story</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg md:text-xl lg:text-2xl text-foreground">Our Story</h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
                 Founded with a vision to bridge the gap between innovative technology and practical 
                 business solutions, SparcX Solutions has grown from a small team of passionate developers 
                 into a trusted partner for businesses seeking digital transformation.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
                 We believe in the power of clean code, intuitive design, and strategic thinking to 
                 create applications that not only meet today's needs but scale for tomorrow's challenges.
               </p>
@@ -100,8 +100,8 @@ const AboutSection = () => {
                   <div className="w-12 h-12 bg-foreground text-background rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform animate-bounce-in">
                     <feature.icon className="h-6 w-6" />
                   </div>
-                  <h4 className="font-semibold text-foreground mb-2">{feature.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                  <h4 className="text-sm md:text-base font-semibold text-foreground mb-2">{feature.title}</h4>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed text-justify">{feature.description}</p>
                 </div>
               </div>
             ))}
