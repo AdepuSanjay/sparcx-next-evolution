@@ -60,13 +60,13 @@ const projects = [
     githubUrl: "#",
     category: "E-Commerce",
     icon: Globe
-    }
+    },
   {
     id: 6,
     title: "Attendance Portal",
     description: "A portal for managing attendance built with Django and SQL (details beyond the tech stack were limited).",
     technologies:  ["React", "Node.js", "Express", "MongoDB"] ,
-    image: "https://res.cloudinary.com/dppiuypop/image/upload/v1757057761/uploads/exxl9xfauvq6crfvmtpe.png",
+    image: "https://res.cloudinary.com/dppiuypop/image/upload/v1757059811/uploads/c8zhxtqzkxdz4nknqk5h.png",
     liveUrl: "https://tkrcet.vercel.app",
     githubUrl: "#",
     category: "Education / Admin",
