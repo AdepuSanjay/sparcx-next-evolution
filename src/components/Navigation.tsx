@@ -22,11 +22,10 @@ const Navigation = () => {
           {/* Logo only */}
           <div className="flex-shrink-0">
             <img
-              src="https://res.cloudinary.com/dppiuypop/image/upload/v1756998759/uploads/uoi5czmrusqbfoxhqqrk.jpg" // put your logo file in /public
+              src="https://res.cloudinary.com/dppiuypop/image/upload/v1756998759/uploads/uoi5czmrusqbfoxhqqrk.jpg"
               alt="SparcX Logo"
-              width={120} // adjust size as needed
+              width={120}
               height={40}
-              priority
             />
           </div>
 
@@ -47,9 +46,11 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="corporate" size="sm">
-              Get Started
-            </Button>
+            <a href="#contact">
+              <Button variant="corporate" size="sm">
+                Get Started
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -79,9 +80,11 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="pt-4">
-                <Button variant="corporate" size="sm" className="w-full">
-                  Get Started
-                </Button>
+                <a href="#contact">
+                  <Button variant="corporate" size="sm" className="w-full">
+                    Get Started
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

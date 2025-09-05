@@ -51,14 +51,18 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="outline" size="lg" className="group bg-background text-foreground border-border hover:bg-muted hover-glow">
-                Learn More About Our Process
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="group hover-lift">
-                <Play className="mr-2 h-4 w-4" />
-                View Our Work
-              </Button>
+              <a href="#services">
+                <Button variant="outline" size="lg" className="group bg-background text-foreground border-border hover:bg-muted hover-glow">
+                  Learn More About Our Process
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+              <a href="#projects">
+                <Button variant="outline" size="lg" className="group hover-lift">
+                  <Play className="mr-2 h-4 w-4" />
+                  View Our Work
+                </Button>
+              </a>
             </div>
           </div>
 

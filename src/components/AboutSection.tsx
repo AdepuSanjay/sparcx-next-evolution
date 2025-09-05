@@ -60,10 +60,12 @@ const AboutSection = () => {
                 We believe in the power of clean code, intuitive design, and strategic thinking to 
                 create applications that not only meet today's needs but scale for tomorrow's challenges.
               </p>
-              <Button variant="corporate" className="group hover-glow">
-                Learn More About Our Process
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <a href="#services">
+                <Button variant="corporate" className="group hover-glow">
+                  Learn More About Our Process
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
             </div>
             
             <div className="relative animate-scale-in">
