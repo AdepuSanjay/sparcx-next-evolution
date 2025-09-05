@@ -70,6 +70,7 @@ const projects = [
     liveUrl: "https://tkrcet.vercel.app",
     githubUrl: "#",
     category: "Education / Admin",
+    icon: Globe
   }
 ];
 
