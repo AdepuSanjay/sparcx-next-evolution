@@ -7,7 +7,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-foreground">SparcX Solutions</h3>
+            <div className="flex-shrink-0">
+            <img
+              src="https://res.cloudinary.com/dppiuypop/image/upload/v1756998759/uploads/uoi5czmrusqbfoxhqqrk.jpg"
+              alt="SparcX Logo"
+              width={120}
+              height={40}
+            />
+          </div>
             <p className="text-muted-foreground leading-relaxed">
               Building modern, scalable web solutions with precision and expertise. 
               Your trusted partner for full-stack development.
@@ -77,7 +84,7 @@ const Footer = () => {
         <div className="border-t pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm">
-              © 2024 SparcX Solutions. All rights reserved.
+              © 2024 Sparcx. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm flex items-center">
               Made with <Heart className="h-4 w-4 text-primary mx-1" /> by the SparcX team
