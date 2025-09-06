@@ -244,13 +244,12 @@ All colors MUST be HSL.
 }
 
 /* Typing animation */
-.typing-text {
+.typing-animation {
   display: inline-block;
   overflow: hidden;
   border-right: 2px solid hsl(var(--foreground));
   white-space: nowrap;
-  width: 0;
-  animation: typing 4s steps(35, end) forwards, blink-caret 0.75s step-end infinite 4s;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -259,7 +258,6 @@ All colors MUST be HSL.
   }
   to {
     width: 100%;
-    max-width: fit-content;
   }
 }
 
