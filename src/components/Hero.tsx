@@ -14,7 +14,7 @@ const Hero = () => {
                 ✨ Full Stack Development Excellence
               </div>
                <h1 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
-                We Build <span className="typing-animation">Modern Web Solutions</span>
+                We Build <span className="typing-text">Modern Web Solutions</span>
                </h1>
               <p className="text-sm md:text-base lg:text-xl text-muted-foreground leading-relaxed text-justify">
                 As a dedicated team of full stack developers, we create reliable, 
