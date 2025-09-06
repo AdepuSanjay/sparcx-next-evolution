@@ -22,7 +22,7 @@ const Navigation = () => {
           {/* Logo only */}
           <div className="flex-shrink-0">
             <img
-              src="https://res.cloudinary.com/dppiuypop/image/upload/v1756998759/uploads/uoi5czmrusqbfoxhqqrk.jpg"
+              src="https://res.cloudinary.com/dppiuypop/image/upload/v1757152646/uploads/c8zrmasykfalqcqhahwc.png"
               alt="SparcX Logo"
               width={120}
               height={40}
