@@ -15,7 +15,7 @@ const Hero = () => {
               </div>
                <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 We Build{" "}
-                <span className="text-foreground">
+                <span className="text-foreground typing-animation">
                   Modern, Scalable
                 </span>{" "}
                 Web Solutions

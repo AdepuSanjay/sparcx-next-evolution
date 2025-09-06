@@ -122,15 +122,6 @@ const ServicesSection = () => {
                   ))}
                 </ul>
 
-                {/* CTA */}
-                <Button 
-                  variant={service.highlight ? "corporate" : "outline"} 
-                  size="sm" 
-                  className="group/button w-full hover-glow"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
-                </Button>
               </div>
             </Card>
           ))}
