@@ -15,11 +15,11 @@ const Hero = () => {
               </div>
                <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 We Build{" "}
-                <span className="text-foreground typing-animation">
+                <span className="text-foreground">
                   Modern, Scalable
                 </span>{" "}
                 Web Solutions
-              </h1>
+               </h1>
               <p className="text-sm md:text-base lg:text-xl text-muted-foreground leading-relaxed text-justify">
                 As a dedicated team of full stack developers, we create reliable, 
                 high-performance digital products tailored to your goals. From backend 
