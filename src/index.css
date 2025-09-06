@@ -245,22 +245,19 @@ All colors MUST be HSL.
 
 /* Typing animation */
 .typing-animation {
-  display: block;
+  display: inline-block;
   overflow: hidden;
-  border-right: 2px solid hsl(var(--foreground));
-  width: 100%;
-  max-width: 100%;
-  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+  border-right: 0.15em solid hsl(var(--foreground));
+  white-space: nowrap;
+  animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
   from {
     width: 0;
-    max-width: 0;
   }
   to {
     width: 100%;
-    max-width: 100%;
   }
 }
 

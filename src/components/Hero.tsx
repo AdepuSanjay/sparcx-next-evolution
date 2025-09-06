@@ -13,8 +13,8 @@ const Hero = () => {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm animate-bounce-in">
                 ✨ Full Stack Development Excellence
               </div>
-               <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight typing-animation">
-                We Build Modern, Scalable Web Solutions
+               <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+                We Build <span className="typing-animation">Modern Web Solutions</span>
                </h1>
               <p className="text-sm md:text-base lg:text-xl text-muted-foreground leading-relaxed text-justify">
                 As a dedicated team of full stack developers, we create reliable, 
