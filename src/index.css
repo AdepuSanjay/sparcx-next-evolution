@@ -247,9 +247,10 @@ All colors MUST be HSL.
 .typing-animation {
   display: inline-block;
   overflow: hidden;
-  border-right: 0.15em solid hsl(var(--foreground));
+  border-right: 0.1em solid hsl(var(--foreground));
   white-space: nowrap;
-  animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+  width: 0;
+  animation: typing 2.5s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -257,7 +258,7 @@ All colors MUST be HSL.
     width: 0;
   }
   to {
-    width: 100%;
+    width: 14ch;
   }
 }
 
