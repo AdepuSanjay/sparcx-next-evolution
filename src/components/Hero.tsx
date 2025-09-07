@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-team.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 animate-fade-in">
+    <section id="home" className="min-h-screen flex items-center pt-20 animate-fade-in">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
