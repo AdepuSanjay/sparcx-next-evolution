@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-team.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 md:pt-16 animate-fade-in" style={{ paddingTop: 'max(10%, 4rem)' }}>
+    <section id="home" className="min-h-screen flex items-center pt-16 animate-fade-in">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -13,7 +13,7 @@ const Hero = () => {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm animate-bounce-in">
                 ✨ Full Stack Development Excellence
               </div>
-               <h1 className="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+               <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 We Build{" "}
                 <span className="text-foreground">
                   Modern, Scalable
