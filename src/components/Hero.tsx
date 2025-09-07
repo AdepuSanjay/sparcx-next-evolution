@@ -10,10 +10,10 @@ const Hero = () => {
           {/* Content */}
           <div className="space-y-8 animate-slide-up">
             <div className="space-y-4">
-              <div className="inline-flex items-center px-4 py-2 pt-2.5 rounded-full bg-accent/10 text-accent font-medium text-sm animate-bounce-in">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm animate-bounce-in">
                 ✨ Full Stack Development Excellence
               </div>
-               <h1 className="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+               <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 We Build{" "}
                 <span className="text-foreground">
                   Modern, Scalable
