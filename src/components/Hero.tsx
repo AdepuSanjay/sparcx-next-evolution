@@ -4,13 +4,13 @@ import heroImage from "@/assets/hero-team.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 animate-fade-in">
+    <section id="home" className="min-h-screen flex items-center pt-16 animate-fade-in">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8 animate-slide-up">
             <div className="space-y-4">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm animate-bounce-in mt-2.5 md:mt-0">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm animate-bounce-in">
                 ✨ Full Stack Development Excellence
               </div>
                <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
@@ -31,15 +31,15 @@ const Hero = () => {
             <div className="bg-background border rounded-2xl p-6 my-8 animate-scale-in">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-orange-500">10+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">50+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Projects Completed</div>
                 </div>
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-orange-500">2+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">4+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Years of Experience</div>
                 </div>
                 <div className="text-center hover-lift">
-                  <div className="text-2xl md:text-3xl font-bold text-orange-500">15+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-orange-500">20+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Technologies Mastered</div>
                 </div>
                 <div className="text-center hover-lift">

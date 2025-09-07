@@ -73,15 +73,15 @@ const AboutSection = () => {
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Projects Completed</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">10+</span>
+                    <span className="text-2xl md:text-3xl font-bold text-orange-500">50+</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Years of Experience</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">2+</span>
+                    <span className="text-2xl md:text-3xl font-bold text-orange-500">4+</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Technologies Mastered</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">15+</span>
+                    <span className="text-2xl md:text-3xl font-bold text-orange-500">20+</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">Client Satisfaction</span>
