@@ -22,42 +22,42 @@ const teamMembers: TeamMember[] = [
   {
     name: "Katikola karthik",
     role: "Lead Full Stack Developer",
-    bio: "Specialized in MERN stack with 5+ years of experience building scalable web applications and leading development teams.",
+    bio: "An experienced full stack developer known for building end-to-end web solutions with efficiency and scalability. His strong foundation in both frontend frameworks and backend systems enables him to architect and deliver enterprise-grade applications.",
     image: "https://res.cloudinary.com/dppiuypop/image/upload/v1756993459/uploads/effqkv70nopivmbfl0vg.jpg",
     linkedin: "https://linkedin.com/in/alex-rodriguez-dev",
     portfolio: "https://alex-rodriguez.dev",
     email: "alex@sparcx.in",
-    expertise: ["React", "Node.js", "MongoDB", "AWS"]
+    expertise: ["React", "Node.js", "MongoDB", "Enterprise Architecture"]
   },
   {
     name: "Byagari vinay",
-    role: "Frontend Architect",
-    bio: "Expert in modern React ecosystems and UI/UX design with a passion for creating beautiful, accessible user interfaces.",
+    role: "Full Stack Developer",
+    bio: "A passionate full stack developer skilled in creating responsive user interfaces and dynamic web applications. With experience in Django and core web technologies, he brings user-focused solutions to life with precision and adaptability.",
     image: "https://res.cloudinary.com/dppiuypop/image/upload/v1756993400/uploads/ws7lxqgz4hlsoetj30cn.jpg",
     linkedin: "https://linkedin.com/in/sarah-chen-frontend",
     portfolio: "https://sarah-chen.dev",
     email: "sarah@sparcx.in",
-    expertise: ["React", "Next.js", "TypeScript", "Design Systems"]
+    expertise: ["Django", "React", "JavaScript", "Web Technologies"]
   },
   {
     name: "Chamakuri Naveen",
-    role: "Backend Engineer",
-    bio: "Django and Node.js specialist focusing on building robust APIs, microservices, and cloud infrastructure solutions.",
+    role: "Frontend Developer",
+    bio: "A detail-oriented frontend developer specializing in crafting engaging, high-performance user interfaces using modern frameworks like React. He combines creativity with technical proficiency to deliver smooth and responsive web experiences.",
     image: "https://res.cloudinary.com/dppiuypop/image/upload/v1756993494/uploads/g8uv2ppwfh1cj8cdiwa1.jpg",
     linkedin: "https://linkedin.com/in/michael-park-backend",
     portfolio: "https://michael-park.dev",
     email: "michael@sparcx.in",
-    expertise: ["Django", "PostgreSQL", "Docker", "Cloud Architecture"]
+    expertise: ["React", "JavaScript", "CSS", "UI/UX"]
   },
   {
     name: "Adepu Sanjay",
-    role: "DevOps & Full Stack Developer",
-    bio: "Full stack developer with expertise in deployment, CI/CD pipelines, and maintaining production-grade applications.",
+    role: "Full Stack Developer",
+    bio: "A dedicated full stack developer with expertise in both frontend and backend technologies. With strong command over the MERN stack and React Native, FastAPI, he builds robust, scalable web applications with a focus on clean architecture and seamless user experience.",
     image:"https://res.cloudinary.com/dppiuypop/image/upload/v1756993559/uploads/tjz06st5imh5pmtzeekx.jpg",
     linkedin: "https://linkedin.com/in/priya-sharma-devops",
     portfolio: "https://priya-sharma.dev",
     email: "priya@sparcx.in",
-    expertise: ["DevOps", "React", "Express", "Cloudinary"]
+    expertise: ["MERN Stack", "React Native", "FastAPI", "Clean Architecture"]
   }
 ];
 
