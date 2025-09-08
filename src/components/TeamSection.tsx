@@ -53,7 +53,7 @@ const teamMembers: TeamMember[] = [
     name: "Adepu Sanjay",
     role: "Full Stack Developer",
     bio: "A dedicated full stack developer with expertise in both frontend and backend technologies. With strong command over the MERN stack and React Native, FastAPI, he builds robust, scalable web applications with a focus on clean architecture and seamless user experience.",
-    image:"https://res.cloudinary.com/dppiuypop/image/upload/v1756993559/uploads/tjz06st5imh5pmtzeekx.jpg",
+    image:"https://res.cloudinary.com/dppiuypop/image/upload/v1757335199/uploads/cqzyzpmx46sitzvk1zxl.jpg",
     linkedin: "https://linkedin.com/in/priya-sharma-devops",
     portfolio: "https://priya-sharma.dev",
     email: "priya@sparcx.in",
@@ -97,7 +97,7 @@ const TeamSection = () => {
               <div className="p-6">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-border group-hover:ring-foreground transition-all">
+                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-border transition-all">
                     <img
                       src={member.image}
                       alt={member.name}
