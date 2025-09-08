@@ -14,7 +14,7 @@ const Footer = () => {
               Building modern, scalable web solutions with precision and expertise. 
               Your trusted partner for full-stack development.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a
                 href="https://linkedin.com/company/sparcx-solutions"
                 className="text-muted-foreground hover:text-primary transition-colors"
