@@ -31,9 +31,9 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#services">
-                <Button variant="outline" size="lg" className="group bg-background text-foreground border-border hover:bg-muted hover-glow">
+                <Button variant="outline" size="lg" className="bg-background text-foreground border-border">
                   Learn More About Our Process
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
               <a href="#projects">
