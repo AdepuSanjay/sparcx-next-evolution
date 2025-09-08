@@ -97,14 +97,13 @@ const TeamSection = () => {
               <div className="p-6">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden ring-4 ring-border group-hover:ring-foreground transition-all">
+                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-border group-hover:ring-foreground transition-all">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent rounded-full border-4 border-card"></div>
                 </div>
 
                 {/* Member Info */}
