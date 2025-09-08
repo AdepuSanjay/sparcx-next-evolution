@@ -110,7 +110,10 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="pt-4">
-                <a href="#contact">
+                <a 
+                  href="#contact" 
+                  onClick={(e) => handleSmoothScroll(e, '#contact')}
+                >
                   <Button variant="corporate" size="sm" className="w-full">
                     Get Started
                   </Button>
