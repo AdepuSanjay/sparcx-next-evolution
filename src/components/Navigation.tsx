@@ -23,6 +23,18 @@ const Navigation = () => {
     };
   }, [isOpen]);
 
+  const handleSmoothScroll = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+    setIsOpen(false);
+  };
+
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -53,6 +65,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.name}
@@ -90,8 +103,8 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-all duration-200 text-center"
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </a>
