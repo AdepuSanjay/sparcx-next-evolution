@@ -47,50 +47,6 @@ const AboutSection = () => {
             </p>
           </div>
 
-          {/* Story */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="space-y-6 animate-slide-up">
-              <h3 className="text-lg md:text-xl lg:text-2xl text-foreground">Our Story</h3>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
-                Founded with a vision to bridge the gap between innovative technology and practical 
-                business solutions, SparcX Solutions has grown from a small team of passionate developers 
-                into a trusted partner for businesses seeking digital transformation.
-              </p>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
-                We believe in the power of clean code, intuitive design, and strategic thinking to 
-                create applications that not only meet today's needs but scale for tomorrow's challenges.
-              </p>
-              <a href="#services">
-                <Button variant="corporate" className="group hover-glow">
-                  Learn More About Our Process
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
-            </div>
-            
-            <div className="relative animate-scale-in">
-              <div className="bg-background border p-8 rounded-2xl hover-lift">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Projects Completed</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">10+</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Years of Experience</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">2+</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Technologies Mastered</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">15+</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Client Satisfaction</span>
-                    <span className="text-2xl md:text-3xl font-bold text-orange-500">100%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
