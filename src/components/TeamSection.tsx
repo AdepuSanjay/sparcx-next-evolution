@@ -97,7 +97,7 @@ const TeamSection = () => {
               <div className="p-6">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-border transition-all">
+                  <div className="w-40 h-40 mx-auto rounded-full overflow-hidden ring-4 ring-border transition-all">
                     <img
                       src={member.image}
                       alt={member.name}
