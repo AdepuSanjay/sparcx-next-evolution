@@ -74,7 +74,7 @@ const ProjectsSection = () => {
       description:
         "A portal for managing attendance built with Django and SQL (details beyond the tech stack were limited).",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
-      image:
+      video:
         "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212991/tkr_mecmco.mp4",
       liveUrl: "https://tkrcet.vercel.app",
       githubUrl: "#",
