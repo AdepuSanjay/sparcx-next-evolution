@@ -120,7 +120,10 @@ const TeamSection = () => {
         /* Image protection with overlay */
         .protected-image-container {
           position: relative;
-          display: inline-block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
         }
 
         .protected-image-container::before {
@@ -133,11 +136,22 @@ const TeamSection = () => {
           background: transparent;
           z-index: 2;
           pointer-events: none;
+          border-radius: 50%;
         }
 
         .protected-image {
           position: relative;
           z-index: 1;
+          display: block;
+          margin: 0 auto;
+        }
+
+        /* Center the image container */
+        .image-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
         }
 
         /* Blur protection for screen recording */
@@ -192,16 +206,18 @@ const TeamSection = () => {
             {shuffledMembers.map((member) => (
               <Card key={member.name} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
                 <div className="p-6">
-                  {/* Protected Profile Image */}
+                  {/* Protected Profile Image - NOW PROPERLY CENTERED */}
                   <div className="relative mb-6">
-                    <div className="w-[145px] h-[145px] mx-auto rounded-full overflow-hidden ring-4 ring-border transition-all protected-image-container">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover protected-image"
-                        onContextMenu={(e) => e.preventDefault()}
-                        onDragStart={(e) => e.preventDefault()}
-                      />
+                    <div className="image-wrapper">
+                      <div className="w-[145px] h-[145px] rounded-full overflow-hidden ring-4 ring-border transition-all protected-image-container">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover protected-image"
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}
+                        />
+                      </div>
                     </div>
                   </div>
 
