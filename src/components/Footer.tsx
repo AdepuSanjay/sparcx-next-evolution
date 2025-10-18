@@ -65,7 +65,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-primary">Contact</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>hello@sparcx.in</p>
+             
               <p>+1 (234) 567-8900</p>
               <p className="text-sm">
                 Monday - Friday<br />
@@ -79,11 +79,9 @@ const Footer = () => {
         <div className="border-t pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm">
-              © 2024 Sparcx. All rights reserved.
+              © 2024 sparcx. All rights reserved.
             </p>
-            <p className="text-muted-foreground text-sm flex items-center">
-              Made with <Heart className="h-4 w-4 text-primary mx-1" /> by the SparcX team
-            </p>
+            
           </div>
         </div>
       </div>
