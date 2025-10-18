@@ -16,23 +16,23 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Katikola karthik",
+    name: "Katikola Karthik",
     role: "Lead Full Stack Developer",
     bio: "An experienced full stack developer known for building end-to-end web solutions with efficiency and scalability. His strong foundation in both frontend frameworks and backend systems enables him to architect and deliver enterprise-grade applications.",
     image: "https://res.cloudinary.com/dppiuypop/image/upload/v1756993459/uploads/effqkv70nopivmbfl0vg.jpg",
-    linkedin: "https://linkedin.com/in/alex-rodriguez-dev",
-    portfolio: "https://alex-rodriguez.dev",
-    email: "alex@sparcx.in",
+    linkedin: "https://www.linkedin.com/in/katikola-karthik?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    portfolio: "https://github.com/katikolakarthik",
+    email: "katikolakarthik@gmail.com",
     expertise: ["React", "Node.js", "MongoDB", "Enterprise Architecture"]
   },
   {
-    name: "Byagari vinay",
+    name: "Byagari Vinay",
     role: "Full Stack Developer",
     bio: "A passionate full stack developer skilled in creating responsive user interfaces and dynamic web applications. With experience in Django and core web technologies, he brings user-focused solutions to life with precision and adaptability.",
     image: "https://res.cloudinary.com/dppiuypop/image/upload/v1756993400/uploads/ws7lxqgz4hlsoetj30cn.jpg",
-    linkedin: "https://linkedin.com/in/sarah-chen-frontend",
-    portfolio: "https://sarah-chen.dev",
-    email: "sarah@sparcx.in",
+    linkedin: "https://www.linkedin.com/in/vinay-byagari-77075a34b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    portfolio: "https://vinaybyagari-portfolio.vercel.app/",
+    email: "vinaybyagari07@gmail.com",
     expertise: ["Django", "React", "JavaScript", "Web Technologies"]
   },
   {
@@ -40,19 +40,19 @@ const teamMembers: TeamMember[] = [
     role: "Frontend Developer",
     bio: "A detail-oriented frontend developer specializing in crafting engaging, high-performance user interfaces using modern frameworks like React. He combines creativity with technical proficiency to deliver smooth and responsive web experiences.",
     image: "https://res.cloudinary.com/dppiuypop/image/upload/v1756993494/uploads/g8uv2ppwfh1cj8cdiwa1.jpg",
-    linkedin: "https://linkedin.com/in/michael-park-backend",
-    portfolio: "https://michael-park.dev",
-    email: "michael@sparcx.in",
+    linkedin: "",
+    portfolio: "",
+    email: "chamakurinaveen11@gmail.com",
     expertise: ["React", "JavaScript", "CSS", "UI/UX"]
   },
   {
     name: "Adepu Sanjay",
     role: "Full Stack Developer",
     bio: "A dedicated full stack developer with expertise in both frontend and backend technologies. With strong command over the MERN stack and React Native, FastAPI, he builds robust, scalable web applications with a focus on clean architecture and seamless user experience.",
-    image:"https://res.cloudinary.com/dppiuypop/image/upload/v1757335199/uploads/cqzyzpmx46sitzvk1zxl.jpg",
-    linkedin: "https://linkedin.com/in/priya-sharma-devops",
-    portfolio: "https://priya-sharma.dev",
-    email: "priya@sparcx.in",
+    image: "https://res.cloudinary.com/dppiuypop/image/upload/v1757335199/uploads/cqzyzpmx46sitzvk1zxl.jpg",
+    linkedin: "https://www.linkedin.com/in/adepu-sanjay-3746662a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    portfolio: "https://sanjayadepu-ax58.vercel.app",
+    email: "adepusanjay812@gmail.com",
     expertise: ["MERN Stack", "React Native", "FastAPI", "Clean Architecture"]
   }
 ];
@@ -244,36 +244,40 @@ const TeamSection = () => {
 
                   {/* Social Links */}
                   <div className="flex justify-center space-x-2">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-10 w-10 p-0 hover:bg-accent/10 hover:text-accent"
-                      asChild
-                    >
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name}'s LinkedIn`}
+                    {member.linkedin && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-10 w-10 p-0 hover:bg-accent/10 hover:text-accent"
+                        asChild
                       >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-10 w-10 p-0 hover:bg-primary/10 hover:text-primary"
-                      asChild
-                    >
-                      <a
-                        href={member.portfolio}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name}'s Portfolio`}
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name}'s LinkedIn`}
+                        >
+                          <Linkedin className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
+                    {member.portfolio && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-10 w-10 p-0 hover:bg-primary/10 hover:text-primary"
+                        asChild
                       >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </Button>
+                        <a
+                          href={member.portfolio}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name}'s Portfolio`}
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
                     <Button
                       variant="ghost"
                       size="sm"
