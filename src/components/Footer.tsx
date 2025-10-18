@@ -66,7 +66,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4 text-primary">Contact</h4>
             <div className="space-y-2 text-muted-foreground">
              
-              <p>+1 (234) 567-8900</p>
+             
               <p className="text-sm">
                 Monday - Friday<br />
                 9:00 AM - 6:00 PM EST
