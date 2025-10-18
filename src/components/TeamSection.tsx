@@ -53,7 +53,7 @@ const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/adepu-sanjay-3746662a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     portfolio: "https://sanjayadepu-ax58.vercel.app",
     email: "adepusanjay812@gmail.com",
-    expertise: ["MERN Stack", "React Native", "FastAPI", "Clean Architecture"]
+    expertise: ["MERN Stack", "Next.Js", "FastAPI", "Clean Architecture"]
   }
 ];
 
