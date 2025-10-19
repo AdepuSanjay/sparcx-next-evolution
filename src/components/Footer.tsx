@@ -16,14 +16,14 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a
-                href="https://linkedin.com/company/sparcx-solutions"
+                href="https://www.linkedin.com/company/sparcxsolutions/"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:hello@sparcx.in"
+                href="mailto: sparcxsolutions@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
