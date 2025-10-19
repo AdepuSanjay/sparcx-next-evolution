@@ -1,7 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Linkedin, ExternalLink, Mail } from "lucide-react";
+import { Linkedin, ExternalLink, Mail, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TeamMember {
   name: string;
@@ -57,13 +58,135 @@ const teamMembers: TeamMember[] = [
   }
 ];
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    scale: 0.8, 
+    opacity: 0,
+    y: 50,
+    rotateY: -15
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    y: 0,
+    rotateY: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      type: "spring",
+      stiffness: 100
+    }
+  },
+  exit: {
+    scale: 0.8,
+    opacity: 0,
+    y: -50,
+    rotateY: 15,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn"
+    }
+  }
+};
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    rotate: 5,
+    transition: {
+      duration: 0.2,
+      ease: "easeOut"
+    }
+  },
+  tap: {
+    scale: 0.95,
+    transition: {
+      duration: 0.1
+    }
+  }
+};
+
+const dotVariants = {
+  inactive: {
+    scale: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.2)"
+  },
+  active: {
+    scale: 1.3,
+    backgroundColor: "hsl(var(--accent))",
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  },
+  hover: {
+    scale: 1.2,
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    transition: {
+      duration: 0.2
+    }
+  }
+};
+
 const TeamSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffledMembers, setShuffledMembers] = useState<TeamMember[]>([]);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
     const shuffled = [...teamMembers].sort(() => Math.random() - 0.5);
     setShuffledMembers(shuffled);
   }, []);
+
+  // Auto-rotation effect
+  useEffect(() => {
+    if (!isAutoPlaying || shuffledMembers.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % shuffledMembers.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, shuffledMembers.length]);
+
+  const nextMember = () => {
+    setCurrentIndex((prev) => (prev + 1) % shuffledMembers.length);
+    setIsAutoPlaying(false); // Stop auto-play when user manually navigates
+  };
+
+  const prevMember = () => {
+    setCurrentIndex((prev) => (prev - 1 + shuffledMembers.length) % shuffledMembers.length);
+    setIsAutoPlaying(false); // Stop auto-play when user manually navigates
+  };
+
+  const goToMember = (index: number) => {
+    setCurrentIndex(index);
+    setIsAutoPlaying(false); // Stop auto-play when user manually navigates
+  };
 
   return (
     <>
@@ -182,122 +305,342 @@ const TeamSection = () => {
         }
       `}</style>
 
-      <section id="team" className="py-24 bg-secondary/30 team-content">
+      <motion.section 
+        id="team" 
+        className="py-24 bg-secondary/30 team-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="container mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
+          <motion.div className="text-center mb-16" variants={itemVariants}>
+            <motion.div 
+              className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               👥 Meet Our Team
-            </div>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
+            </motion.div>
+            <motion.h2 
+              className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               The Experts Behind{" "}
-              <span className="text-foreground">
+              <motion.span 
+                className="text-foreground"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 Your Success
-              </span>
-            </h2>
-            <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              </motion.span>
+            </motion.h2>
+            <motion.p 
+              className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               Our diverse team of full stack developers, designers, and architects 
               work together to deliver exceptional digital solutions.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          {/* Team Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {shuffledMembers.map((member) => (
-              <Card key={member.name} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
-                <div className="p-6">
-                  {/* Protected Profile Image - NOW PROPERLY CENTERED */}
-                  <div className="relative mb-6">
-                    <div className="image-wrapper">
-                      <div className="w-[145px] h-[145px] rounded-full overflow-hidden ring-4 ring-border transition-all protected-image-container">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover protected-image"
-                          onContextMenu={(e) => e.preventDefault()}
-                          onDragStart={(e) => e.preventDefault()}
-                        />
+          {/* Team Carousel */}
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Navigation Controls */}
+            <motion.div 
+              className="flex justify-center items-center mb-8"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <motion.div
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={prevMember}
+                  className="mr-4 h-10 w-10 p-0 hover:bg-accent/10"
+                  aria-label="Previous team member"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+              </motion.div>
+              
+              <div className="flex space-x-2">
+                {shuffledMembers.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => goToMember(index)}
+                    className="w-3 h-3 rounded-full"
+                    variants={dotVariants}
+                    animate={index === currentIndex ? "active" : "inactive"}
+                    whileHover="hover"
+                    whileTap={{ scale: 0.9 }}
+                    aria-label={`Go to team member ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <motion.div
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={nextMember}
+                  className="ml-4 h-10 w-10 p-0 hover:bg-accent/10"
+                  aria-label="Next team member"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </motion.div>
+              
+              {/* Play/Pause Button */}
+              <motion.div
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                  className="ml-4 h-10 w-10 p-0 hover:bg-accent/10"
+                  aria-label={isAutoPlaying ? "Pause auto-rotation" : "Start auto-rotation"}
+                >
+                  <motion.div
+                    key={isAutoPlaying ? "pause" : "play"}
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    exit={{ scale: 0, rotate: 180 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    {isAutoPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                  </motion.div>
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            {/* Current Team Member Card */}
+            <AnimatePresence mode="wait">
+              {shuffledMembers.length > 0 && (
+                <motion.div 
+                  key={currentIndex}
+                  className="flex justify-center"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={cardVariants}
+                >
+                  <motion.div
+                    whileHover={{ 
+                      y: -10,
+                      scale: 1.02,
+                      transition: { duration: 0.3, ease: "easeOut" }
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Card className="group hover:shadow-elegant transition-all duration-300 w-full max-w-md">
+                      <div className="p-6">
+                        {/* Protected Profile Image */}
+                        <motion.div 
+                          className="relative mb-6"
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                        >
+                          <div className="image-wrapper">
+                            <motion.div 
+                              className="w-[145px] h-[145px] rounded-full overflow-hidden ring-4 ring-border transition-all protected-image-container mx-auto"
+                              whileHover={{ scale: 1.05, rotate: 5 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <img
+                                src={shuffledMembers[currentIndex].image}
+                                alt={shuffledMembers[currentIndex].name}
+                                className="w-full h-full object-cover protected-image"
+                                onContextMenu={(e) => e.preventDefault()}
+                                onDragStart={(e) => e.preventDefault()}
+                              />
+                            </motion.div>
+                          </div>
+                        </motion.div>
+
+                        {/* Member Info */}
+                        <motion.div 
+                          className="text-center mb-4"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <motion.h3 
+                            className="text-xl font-bold mb-1"
+                            initial={{ y: 10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.4 }}
+                          >
+                            {shuffledMembers[currentIndex].name}
+                          </motion.h3>
+                          <motion.p 
+                            className="text-accent font-medium mb-2"
+                            initial={{ y: 10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.5 }}
+                          >
+                            {shuffledMembers[currentIndex].role}
+                          </motion.p>
+                          <motion.p 
+                            className="text-sm text-muted-foreground leading-relaxed"
+                            initial={{ y: 10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                          >
+                            {shuffledMembers[currentIndex].bio}
+                          </motion.p>
+                        </motion.div>
+
+                        {/* Expertise Tags */}
+                        <motion.div 
+                          className="flex flex-wrap gap-2 mb-6 justify-center"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.7 }}
+                        >
+                          {shuffledMembers[currentIndex].expertise.map((skill, skillIndex) => (
+                            <motion.span
+                              key={skill}
+                              className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
+                              initial={{ scale: 0, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={{ 
+                                duration: 0.3, 
+                                delay: 0.8 + skillIndex * 0.1,
+                                ease: "easeOut"
+                              }}
+                              whileHover={{ 
+                                scale: 1.1, 
+                                backgroundColor: "hsl(var(--primary))",
+                                color: "white",
+                                transition: { duration: 0.2 }
+                              }}
+                            >
+                              {skill}
+                            </motion.span>
+                          ))}
+                        </motion.div>
+
+                        {/* Social Links */}
+                        <motion.div 
+                          className="flex justify-center space-x-2"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.9 }}
+                        >
+                          {shuffledMembers[currentIndex].linkedin && (
+                            <motion.div
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                              whileTap={{ scale: 0.9 }}
+                            >
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-10 w-10 p-0 hover:bg-accent/10 hover:text-accent"
+                                asChild
+                              >
+                                <a
+                                  href={shuffledMembers[currentIndex].linkedin}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`${shuffledMembers[currentIndex].name}'s LinkedIn`}
+                                >
+                                  <Linkedin className="h-4 w-4" />
+                                </a>
+                              </Button>
+                            </motion.div>
+                          )}
+                          {shuffledMembers[currentIndex].portfolio && (
+                            <motion.div
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                              whileTap={{ scale: 0.9 }}
+                            >
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-10 w-10 p-0 hover:bg-primary/10 hover:text-primary"
+                                asChild
+                              >
+                                <a
+                                  href={shuffledMembers[currentIndex].portfolio}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`${shuffledMembers[currentIndex].name}'s Portfolio`}
+                                >
+                                  <ExternalLink className="h-4 w-4" />
+                                </a>
+                              </Button>
+                            </motion.div>
+                          )}
+                          <motion.div
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-10 w-10 p-0 hover:bg-accent/10 hover:text-accent"
+                              asChild
+                            >
+                              <a
+                                href={`mailto:${shuffledMembers[currentIndex].email}`}
+                                aria-label={`Email ${shuffledMembers[currentIndex].name}`}
+                              >
+                                <Mail className="h-4 w-4" />
+                              </a>
+                            </Button>
+                          </motion.div>
+                        </motion.div>
                       </div>
-                    </div>
-                  </div>
+                    </Card>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-                  {/* Member Info */}
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-accent font-medium mb-2">{member.role}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-
-                  {/* Expertise Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6 justify-center">
-                    {member.expertise.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex justify-center space-x-2">
-                    {member.linkedin && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-10 w-10 p-0 hover:bg-accent/10 hover:text-accent"
-                        asChild
-                      >
-                        <a
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${member.name}'s LinkedIn`}
-                        >
-                          <Linkedin className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                    {member.portfolio && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-10 w-10 p-0 hover:bg-primary/10 hover:text-primary"
-                        asChild
-                      >
-                        <a
-                          href={member.portfolio}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${member.name}'s Portfolio`}
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-10 w-10 p-0 hover:bg-accent/10 hover:text-accent"
-                      asChild
-                    >
-                      <a
-                        href={`mailto:${member.email}`}
-                        aria-label={`Email ${member.name}`}
-                      >
-                        <Mail className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+            {/* Member Counter */}
+            <motion.div 
+              className="text-center mt-6 text-sm text-muted-foreground"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+            >
+              <motion.span
+                key={currentIndex}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {currentIndex + 1} of {shuffledMembers.length} team members
+              </motion.span>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };
