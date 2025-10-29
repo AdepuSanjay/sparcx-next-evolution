@@ -32,7 +32,7 @@ const AboutSection = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-slide-up">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm mb-6">
-              About SparcX Solutions
+              About sparcx
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
               Crafting Digital Excellence Since Day One
