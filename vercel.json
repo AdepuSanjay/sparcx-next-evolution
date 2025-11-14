@@ -8,7 +8,7 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },          // serve static files if they exist
-    { "src": "/.*", "dest": "/index.html" } // otherwise serve index.html (SPA fallback)
+    { "handle": "filesystem" },        
+    { "src": "/.*", "dest": "/index.html" } 
   ]
 }
