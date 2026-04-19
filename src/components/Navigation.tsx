@@ -88,22 +88,22 @@ const Navigation = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
-              className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-light shadow-card flex items-center justify-center group hover:shadow-elegant transition-all duration-300 active:scale-95"
+              className="relative w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary-light shadow-card flex items-center justify-center group hover:shadow-elegant transition-all duration-300 active:scale-95"
             >
-              <div className="relative w-5 h-5 flex flex-col justify-between">
+              <div className="relative w-4 h-4 flex flex-col justify-between">
                 <motion.span
-                  className="block h-[2px] w-full bg-primary-foreground rounded-full origin-center"
-                  animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                  className="block h-[1.5px] w-full bg-primary-foreground rounded-full origin-center"
+                  animate={isOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
                 <motion.span
-                  className="block h-[2px] w-full bg-primary-foreground rounded-full"
+                  className="block h-[1.5px] w-full bg-primary-foreground rounded-full"
                   animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
                   transition={{ duration: 0.2 }}
                 />
                 <motion.span
-                  className="block h-[2px] w-full bg-primary-foreground rounded-full origin-center"
-                  animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                  className="block h-[1.5px] w-full bg-primary-foreground rounded-full origin-center"
+                  animate={isOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
               </div>
