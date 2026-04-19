@@ -125,6 +125,7 @@ const ProjectsSection = () => {
                   {project.video ? (
                     <video
                       src={project.video}
+                      poster={project.image}
                       autoPlay
                       loop
                       muted
@@ -135,6 +136,9 @@ const ProjectsSection = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   )}
