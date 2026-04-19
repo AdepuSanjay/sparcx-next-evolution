@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Globe } from "lucide-react";
+import { ExternalLink, Globe, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import projectHealthcare from "@/assets/project-healthcare.jpg";
 import projectMentorship from "@/assets/project-mentorship.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
@@ -115,13 +116,17 @@ const ProjectsSection = () => {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {projects.map((project, index) => (
-              <div
+              <motion.div
                 key={project.id}
-                className="group bg-card border border-border rounded-2xl overflow-hidden hover-lift animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:shadow-elegant transition-all duration-500"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                whileHover={{ y: -8 }}
               >
                 {/* Project Media (Image or Video) */}
-                <div className="relative overflow-hidden h-48 bg-muted">
+                <div className="relative overflow-hidden h-52 bg-muted">
                   {project.video ? (
                     <video
                       src={project.video}
@@ -130,7 +135,7 @@ const ProjectsSection = () => {
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
                     <img
@@ -139,18 +144,32 @@ const ProjectsSection = () => {
                       loading="lazy"
                       width={1024}
                       height={640}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                   )}
 
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Hover quick action */}
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 w-11 h-11 rounded-full bg-background text-foreground flex items-center justify-center shadow-elegant translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 hover:scale-110"
+                    aria-label={`Visit ${project.title}`}
+                  >
+                    <ArrowUpRight className="h-5 w-5" />
+                  </a>
+
                   {/* Icon & Category */}
                   <div className="absolute top-4 right-4">
-                    <div className="bg-background/90 backdrop-blur-sm p-2 rounded-lg">
+                    <div className="bg-background/90 backdrop-blur-sm p-2 rounded-lg shadow-sm">
                       <project.icon className="h-5 w-5 text-primary" />
                     </div>
                   </div>
                   <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium shadow-sm">
                       {project.category}
                     </span>
                   </div>
@@ -158,10 +177,10 @@ const ProjectsSection = () => {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-foreground mb-3 group-hover:text-primary transition-colors text-lg font-bold">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm text-justify">
                     {project.description}
                   </p>
 
@@ -170,7 +189,7 @@ const ProjectsSection = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm font-medium"
+                        className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-xs font-medium border border-border/50"
                       >
                         {tech}
                       </span>
@@ -195,7 +214,7 @@ const ProjectsSection = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
