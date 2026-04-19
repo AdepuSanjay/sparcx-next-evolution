@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Users, Award, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import aboutImage from "@/assets/about-team.jpg";
 
 const AboutSection = () => {
   const features = [
