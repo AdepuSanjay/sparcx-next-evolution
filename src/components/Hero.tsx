@@ -24,14 +24,6 @@ const Hero = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <div className="space-y-4">
-              <motion.div
-                className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mt-2.5 md:mt-0"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                ✨ Full Stack Development Excellence
-              </motion.div>
               <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 We Build{" "}
                 <span className="text-foreground">Modern, Scalable</span>{" "}

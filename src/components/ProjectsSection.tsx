@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Globe } from "lucide-react";
+import projectHealthcare from "@/assets/project-healthcare.jpg";
+import projectMentorship from "@/assets/project-mentorship.jpg";
+import projectTrading from "@/assets/project-trading.jpg";
+import projectStudymate from "@/assets/project-studymate.jpg";
+import projectEcommerce from "@/assets/project-ecommerce.jpg";
+import projectAttendance from "@/assets/project-attendance.jpg";
 
 const ProjectsSection = () => {
   const projects = [
@@ -9,8 +15,8 @@ const ProjectsSection = () => {
       description:
         "Home and hospice care delivered with compassion—providing personalized nursing, rehabilitation, and post-surgery support in the comfort of patients’ homes.",
       technologies: ["Next.js"],
-      // ✅ use video instead of image
       video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212514/textas_k79p0z.mp4",
+      image: projectHealthcare,
       liveUrl: "https://textashealthcare.in",
       githubUrl: "#",
       category: "Healthcare",
@@ -22,8 +28,8 @@ const ProjectsSection = () => {
       description:
         "Engineering-focused platform offering 1-on-1 mentorship for B.Tech final year projects—supporting students from topic selection to viva, boasting a 100% working project guarantee.",
       technologies: ["Next.js"],
-      video:
-        "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759213286/eng-proj_agpnh9.mp4",
+      video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759213286/eng-proj_agpnh9.mp4",
+      image: projectMentorship,
       liveUrl: "https://zeboticprojects.in",
       githubUrl: "#",
       category: "Portfolio / Mentorship",
@@ -35,8 +41,8 @@ const ProjectsSection = () => {
       description:
         "An algorithmic trading platform providing tools to build, manage, and monetize trading strategies through an intuitive marketplace.",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
-      video:
-        "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212847/algo_b8k4ku.mp4",
+      video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212847/algo_b8k4ku.mp4",
+      image: projectTrading,
       liveUrl: "https://algodukaan.store",
       githubUrl: "#",
       category: "Trading / FinTech",
@@ -48,8 +54,8 @@ const ProjectsSection = () => {
       description:
         "A smart AI study buddy tailored for IGCSE students—powered by Microsoft, it offers revision support, flexible study plans, multilingual assistance (English, Malay, Chinese), and 24/7 learning help.",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
-      video:
-        "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759213697/study_mate_yx3eve.mp4",
+      video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759213697/study_mate_yx3eve.mp4",
+      image: projectStudymate,
       liveUrl: "https://studymate-swart.vercel.app",
       githubUrl: "#",
       category: "AI / Education",
@@ -61,8 +67,8 @@ const ProjectsSection = () => {
       description:
         "An online boutique offering a curated range of Indian ethnic wear—chudidhars, lehengas, saris, and more—combining traditional craftsmanship with modern comfort and style.",
       technologies: ["Django", "SQL"],
-      video:
-        "https://res.cloudinary.com/dppiuypop/image/upload/v1757057516/uploads/kxc4oe3deud8z6msvulc.png",
+      video: "",
+      image: projectEcommerce,
       liveUrl: "https://swethacollections.shop",
       githubUrl: "#",
       category: "E-Commerce",
@@ -74,8 +80,8 @@ const ProjectsSection = () => {
       description:
         "A portal for managing attendance built with MERN stack and cloudnary  (details beyond the tech stack were limited).",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
-      video:
-        "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212991/tkr_mecmco.mp4",
+      video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212991/tkr_mecmco.mp4",
+      image: projectAttendance,
       liveUrl: "https://tkrcet.vercel.app",
       githubUrl: "#",
       category: "Education / Admin",
@@ -119,6 +125,7 @@ const ProjectsSection = () => {
                   {project.video ? (
                     <video
                       src={project.video}
+                      poster={project.image}
                       autoPlay
                       loop
                       muted
@@ -129,6 +136,9 @@ const ProjectsSection = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   )}
