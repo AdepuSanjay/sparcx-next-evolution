@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const Navigation = () => {
@@ -83,45 +83,74 @@ const Navigation = () => {
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Premium Mobile menu button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-light shadow-card flex items-center justify-center group hover:shadow-elegant transition-all duration-300 active:scale-95"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+              <div className="relative w-5 h-5 flex flex-col justify-between">
+                <motion.span
+                  className="block h-[2px] w-full bg-primary-foreground rounded-full origin-center"
+                  animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+                <motion.span
+                  className="block h-[2px] w-full bg-primary-foreground rounded-full"
+                  animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                  className="block h-[2px] w-full bg-primary-foreground rounded-full origin-center"
+                  animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+              </div>
+            </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-card border-t">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-all duration-200 text-center"
+        {/* Premium Mobile Navigation */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="md:hidden overflow-hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <div className="px-3 pt-4 pb-5 space-y-1.5 bg-card/95 backdrop-blur-xl border-t border-border/50">
+                {navItems.map((item, idx) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.06, duration: 0.3 }}
+                    className="block px-4 py-3 text-base font-medium text-muted-foreground hover:text-primary-foreground hover:bg-gradient-to-r hover:from-primary hover:to-primary-light rounded-xl transition-all duration-300 text-center shadow-sm hover:shadow-card"
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+                <motion.div
+                  className="pt-3"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navItems.length * 0.06, duration: 0.3 }}
                 >
-                  {item.name}
-                </a>
-              ))}
-              <div className="pt-4">
-                <a 
-                  href="#contact" 
-                  onClick={(e) => handleSmoothScroll(e, '#contact')}
-                >
-                  <Button variant="corporate" size="sm" className="w-full">
-                    Get Started
-                  </Button>
-                </a>
+                  <a href="#contact" onClick={(e) => handleSmoothScroll(e, "#contact")}>
+                    <Button variant="corporate" size="sm" className="w-full shadow-elegant">
+                      Get Started
+                    </Button>
+                  </a>
+                </motion.div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
