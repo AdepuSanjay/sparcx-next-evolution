@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Users, Award, Zap } from "lucide-react";
 import { motion } from "framer-motion";
-import aboutImage from "@/assets/about-team.jpg";
+import aboutImage from "@/assets/about-team.png";
 
 const AboutSection = () => {
   const features = [
@@ -53,19 +53,23 @@ const AboutSection = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
+              {/* Ambient blurred glows behind image */}
+              <div className="absolute -top-10 -left-10 w-56 h-56 bg-accent/30 rounded-full blur-3xl -z-10" />
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10" />
+
               <motion.img
                 src={aboutImage}
                 alt="sparcx development team collaborating"
-                className="w-full h-auto rounded-2xl shadow-xl"
+                className="w-full h-auto object-contain drop-shadow-2xl"
                 width={1024}
                 height={768}
                 loading="lazy"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                animate={{ y: [0, -14, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                style={{ background: "transparent" }}
               />
-              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-accent/20 rounded-full blur-3xl -z-10" />
             </motion.div>
 
             <div className="grid sm:grid-cols-2 gap-6">
