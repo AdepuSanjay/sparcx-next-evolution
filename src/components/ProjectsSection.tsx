@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Globe } from "lucide-react";
+import projectHealthcare from "@/assets/project-healthcare.jpg";
+import projectMentorship from "@/assets/project-mentorship.jpg";
+import projectTrading from "@/assets/project-trading.jpg";
+import projectStudymate from "@/assets/project-studymate.jpg";
+import projectEcommerce from "@/assets/project-ecommerce.jpg";
+import projectAttendance from "@/assets/project-attendance.jpg";
 
 const ProjectsSection = () => {
   const projects = [
