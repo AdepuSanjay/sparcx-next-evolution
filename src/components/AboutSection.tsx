@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Users, Award, Zap } from "lucide-react";
 import { motion } from "framer-motion";
-import aboutImage from "@/assets/about-team.jpg";
+import aboutImage from "@/assets/about-team.png";
 
 const AboutSection = () => {
   const features = [
@@ -62,7 +62,7 @@ const AboutSection = () => {
               <motion.img
                 src={aboutImage}
                 alt="sparcx development team collaborating"
-                className="w-full h-auto object-contain mix-blend-multiply"
+                className="w-full h-auto object-contain drop-shadow-2xl"
                 width={1024}
                 height={768}
                 loading="lazy"

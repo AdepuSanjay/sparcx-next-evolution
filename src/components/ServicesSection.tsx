@@ -20,7 +20,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-import servicesBanner from "@/assets/services-banner.jpg";
+import servicesBanner from "@/assets/services-banner.png";
 
 interface Service {
   icon: React.ReactNode;
@@ -123,7 +123,7 @@ const ServicesSection = () => {
             <motion.img
               src={servicesBanner}
               alt="Sparcx development services illustration"
-              className="w-full h-auto object-contain mix-blend-multiply"
+              className="w-full h-auto object-contain drop-shadow-2xl"
               width={1024}
               height={640}
               loading="lazy"
