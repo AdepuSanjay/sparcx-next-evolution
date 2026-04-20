@@ -1,4 +1,11 @@
-import { Linkedin, ExternalLink, Mail, Heart } from "lucide-react";
+import { Linkedin, ExternalLink, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+};
 
 const Footer = () => {
   return (
@@ -6,41 +13,38 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
           {/* Brand */}
-          <div className="space-y-4">
-          
-            
-      
+          <motion.div className="space-y-4" {...fadeUp} transition={{ duration: 0.5 }}>
             <p className="text-muted-foreground leading-relaxed">
-              Building modern, scalable web solutions with precision and expertise. 
+              Building modern, scalable web solutions with precision and expertise.
               Your trusted partner for full-stack development.
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a
                 href="https://www.linkedin.com/company/sparcxsolutions/"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary hover:-translate-y-0.5 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto: sparcxsolutions@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                href="mailto:sparcxsolutions@gmail.com"
+                className="text-muted-foreground hover:text-primary hover:-translate-y-0.5 transition-all"
                 aria-label="Email"
               >
                 <Mail className="h-5 w-5" />
               </a>
               <a
                 href="https://sparcx.in"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary hover:-translate-y-0.5 transition-all"
                 aria-label="Website"
               >
                 <ExternalLink className="h-5 w-5" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.1 }}>
             <h4 className="font-semibold mb-4 text-primary">Services</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="#services" className="hover:text-primary transition-colors">Full Stack Development</a></li>
@@ -48,10 +52,10 @@ const Footer = () => {
               <li><a href="#services" className="hover:text-primary transition-colors">Cloud Deployment</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">UI/UX Integration</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Technologies */}
-          <div>
+          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }}>
             <h4 className="font-semibold mb-4 text-primary">Technologies</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li>React & Next.js</li>
@@ -59,20 +63,20 @@ const Footer = () => {
               <li>MongoDB & PostgreSQL</li>
               <li>Django & Python</li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
+          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }}>
             <h4 className="font-semibold mb-4 text-primary">Contact</h4>
             <div className="space-y-2 text-muted-foreground">
-             <p>sparcxsolutions@gmail.com</p>
-             
+              <p>sparcxsolutions@gmail.com</p>
+              <p>+91 80197 92661</p>
               <p className="text-sm">
                 Monday - Friday<br />
-                9:00 AM - 6:00 PM EST
+                9:00 AM - 6:00 PM IST
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
@@ -81,7 +85,6 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               © 2024 sparcx. All rights reserved.
             </p>
-            
           </div>
         </div>
       </div>
@@ -90,6 +93,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
