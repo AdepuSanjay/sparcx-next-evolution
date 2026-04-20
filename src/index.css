@@ -7,6 +7,11 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  html, body, #root {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   :root {
     /* Clean white, orange, black palette */
     --background: 0 0% 100%;

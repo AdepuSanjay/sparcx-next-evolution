@@ -45,16 +45,15 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-card/80 backdrop-blur-md border-b" ref={menuRef}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-card/80 backdrop-blur-md border-b" ref={menuRef}>
+      <div className="container mx-auto px-4 max-w-full">
+        <div className="flex items-center justify-between h-16 gap-2">
           {/* Logo only */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 min-w-0">
             <img
               src="https://res.cloudinary.com/dppiuypop/image/upload/v1757152646/uploads/c8zrmasykfalqcqhahwc.png"
               alt="SparcX Logo"
-              width={120}
-              height={40}
+              className="h-8 w-auto md:h-10"
             />
           </div>
 
