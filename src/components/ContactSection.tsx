@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "hello@sparcx.com", href: "mailto:hello@sparcx.com" },
-  { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
+  { icon: Phone, label: "Phone", value: "+91 80197 92661", href: "tel:+918019792661" },
   { icon: MapPin, label: "Location", value: "India · Remote Worldwide", href: null },
   { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
 ];
