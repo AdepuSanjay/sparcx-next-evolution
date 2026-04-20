@@ -6,7 +6,6 @@ import projectMentorship from "@/assets/project-mentorship.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
 import projectStudymate from "@/assets/project-studymate.jpg";
 import projectEcommerce from "@/assets/project-ecommerce.jpg";
-import projectAttendance from "@/assets/project-attendance.jpg";
 
 const ProjectsSection = () => {
   const projects = [
@@ -73,19 +72,6 @@ const ProjectsSection = () => {
       liveUrl: "https://swethacollections.shop",
       githubUrl: "#",
       category: "E-Commerce",
-      icon: Globe,
-    },
-    {
-      id: 6,
-      title: "Attendance Portal",
-      description:
-        "A portal for managing attendance built with MERN stack and cloudnary  (details beyond the tech stack were limited).",
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
-      video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212991/tkr_mecmco.mp4",
-      image: projectAttendance,
-      liveUrl: "https://tkrcet.vercel.app",
-      githubUrl: "#",
-      category: "Education / Admin",
       icon: Globe,
     },
   ];
