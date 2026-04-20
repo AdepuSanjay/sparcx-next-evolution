@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles, ShieldCheck, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-tech.png";
+import CountUp from "@/components/CountUp";
 
 const floatingLogos = [
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React", className: "top-[8%] -left-4 w-12 h-12 md:w-14 md:h-14", delay: 0 },
@@ -18,9 +19,9 @@ const trustBadges = [
 ];
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "5+", label: "Years Experience" },
-  { value: "98%", label: "Client Satisfaction" },
+  { end: 50, suffix: "+", label: "Projects Delivered" },
+  { end: 5, suffix: "+", label: "Years Experience" },
+  { end: 98, suffix: "%", label: "Client Satisfaction" },
 ];
 
 const Hero = () => {
@@ -118,8 +119,8 @@ const Hero = () => {
             >
               {stats.map((s) => (
                 <div key={s.label}>
-                  <div className="text-2xl md:text-3xl font-bold text-foreground font-poppins">
-                    {s.value}
+                  <div className="text-2xl md:text-3xl font-bold text-foreground font-poppins bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">
+                    <CountUp end={s.end} suffix={s.suffix} duration={2} />
                   </div>
                   <div className="text-[11px] md:text-xs text-muted-foreground mt-1 leading-tight">
                     {s.label}
