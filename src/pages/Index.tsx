@@ -8,6 +8,7 @@ import TechStackSection from "@/components/TechStackSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <ProjectsSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
