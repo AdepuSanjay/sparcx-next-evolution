@@ -25,14 +25,15 @@ const Navigation = () => {
 
   const handleSmoothScroll = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
     setIsOpen(false);
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        const navHeight = 64;
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const navItems = [
