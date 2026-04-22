@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles, ShieldCheck, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-tech.png";
-import CountUp from "@/components/CountUp";
+
 
 const floatingLogos = [
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React", className: "top-[8%] -left-4 w-12 h-12 md:w-14 md:h-14", delay: 0 },
@@ -16,12 +16,6 @@ const trustBadges = [
   { icon: ShieldCheck, label: "Production-Grade Quality" },
   { icon: Zap, label: "Lightning-Fast Delivery" },
   { icon: Sparkles, label: "Pixel-Perfect Design" },
-];
-
-const stats = [
-  { end: 50, suffix: "+", label: "Projects Delivered" },
-  { end: 5, suffix: "+", label: "Years Experience" },
-  { end: 98, suffix: "%", label: "Client Satisfaction" },
 ];
 
 const Hero = () => {
@@ -110,24 +104,6 @@ const Hero = () => {
               ))}
             </motion.div>
 
-            {/* Stats row */}
-            <motion.div
-              className="grid grid-cols-3 gap-4 pt-4 border-t border-border/60"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-            >
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl md:text-3xl font-bold text-foreground font-poppins bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">
-                    <CountUp end={s.end} suffix={s.suffix} duration={2} />
-                  </div>
-                  <div className="text-[11px] md:text-xs text-muted-foreground mt-1 leading-tight">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Hero Image with floating tech logos */}
