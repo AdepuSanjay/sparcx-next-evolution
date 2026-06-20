@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Globe, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-// Removed projectHealthcare import
 import projectMentorship from "@/assets/project-mentorship.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
 import projectStudymate from "@/assets/project-studymate.jpg";
@@ -66,7 +65,7 @@ const ProjectsSection = () => {
       title: "TKRC Attendance Portal",
       description:
         "A streamlined student attendance tracking and management portal for TKRCET, featuring intuitive dashboards for faculty to log records and students to monitor their academic standing.",
-      technologies: ["Next.js", "React", "Tailwind CSS"],
+      technologies: ["React", "Node.js", "MongoDB"],
       video: "",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1024",
       liveUrl: "https://tkrcet.vercel.app",
