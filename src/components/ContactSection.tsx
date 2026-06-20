@@ -14,8 +14,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@sparcx.com",
-    href: "mailto:hello@sparcx.com",
+    value: "support@sparcx.in",
+    href: "mailto:support@sparcx.in",
     accent: "from-primary/20 to-primary/5",
   },
   {
