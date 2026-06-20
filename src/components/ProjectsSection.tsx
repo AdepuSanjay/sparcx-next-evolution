@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Globe, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import projectHealthcare from "@/assets/project-healthcare.jpg";
+// Removed projectHealthcare import
 import projectMentorship from "@/assets/project-mentorship.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
 import projectStudymate from "@/assets/project-studymate.jpg";
@@ -11,19 +11,6 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "Healthcare – Textas Healthcare",
-      description:
-        "Home and hospice care delivered with compassion—providing personalized nursing, rehabilitation, and post-surgery support in the comfort of patients’ homes.",
-      technologies: ["Next.js"],
-      video: "https://res.cloudinary.com/dh3d4pwm4/video/upload/v1759212514/textas_k79p0z.mp4",
-      image: projectHealthcare,
-      liveUrl: "https://textashealthcare.in",
-      githubUrl: "#",
-      category: "Healthcare",
-      icon: Globe,
-    },
-    {
-      id: 2,
       title: "Zebotic Projects (Portfolio & Final Year Project Mentorship)",
       description:
         "Engineering-focused platform offering 1-on-1 mentorship for B.Tech final year projects—supporting students from topic selection to viva, boasting a 100% working project guarantee.",
@@ -36,7 +23,7 @@ const ProjectsSection = () => {
       icon: Globe,
     },
     {
-      id: 3,
+      id: 2,
       title: "Trading Application – AlgoDukaan",
       description:
         "An algorithmic trading platform providing tools to build, manage, and monetize trading strategies through an intuitive marketplace.",
@@ -49,7 +36,7 @@ const ProjectsSection = () => {
       icon: Globe,
     },
     {
-      id: 4,
+      id: 3,
       title: "AI Assistant – StudyMate",
       description:
         "A smart AI study buddy tailored for IGCSE students—powered by Microsoft, it offers revision support, flexible study plans, multilingual assistance (English, Malay, Chinese), and 24/7 learning help.",
@@ -62,7 +49,7 @@ const ProjectsSection = () => {
       icon: Globe,
     },
     {
-      id: 5,
+      id: 4,
       title: "E-Commerce – Swetha Collections",
       description:
         "An online boutique offering a curated range of Indian ethnic wear—chudidhars, lehengas, saris, and more—combining traditional craftsmanship with modern comfort and style.",
@@ -72,6 +59,32 @@ const ProjectsSection = () => {
       liveUrl: "https://swethacollections.shop",
       githubUrl: "#",
       category: "E-Commerce",
+      icon: Globe,
+    },
+    {
+      id: 5,
+      title: "TKRC Attendance Portal",
+      description:
+        "A streamlined student attendance tracking and management portal for TKRCET, featuring intuitive dashboards for faculty to log records and students to monitor their academic standing.",
+      technologies: ["Next.js", "React", "Tailwind CSS"],
+      video: "",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1024",
+      liveUrl: "https://tkrcet.vercel.app",
+      githubUrl: "#",
+      category: "Education / Portal",
+      icon: Globe,
+    },
+    {
+      id: 6,
+      title: "Matrimony Application – Kalyana Shobha",
+      description:
+        "A trusted matrimonial matchmaking platform designed to help individuals find their perfect life partners securely and efficiently, featuring detailed profiles and advanced search filters.",
+      technologies: ["React", "Node.js", "MongoDB"],
+      video: "",
+      image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1024",
+      liveUrl: "https://kalyanashobha.in",
+      githubUrl: "#",
+      category: "Matrimony / Lifestyle",
       icon: Globe,
     },
   ];
