@@ -69,7 +69,7 @@ const Footer = () => {
           <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }}>
             <h4 className="font-semibold mb-4 text-primary">Contact</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>sparcxsolutions@gmail.com</p>
+              <p>support@sparcx.in</p>
               <p>+91 80197 92661</p>
               <p className="text-sm">
                 Monday - Friday<br />
