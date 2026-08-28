@@ -55,7 +55,7 @@ const ProjectsSection = () => {
       technologies: ["Django", "SQL"],
       video: "",
       image: projectEcommerce,
-      liveUrl: "https://swethacollections.shop",
+      liveUrl: "https://swetha-collections.onrender.com",
       githubUrl: "#",
       category: "E-Commerce",
       icon: Globe,
