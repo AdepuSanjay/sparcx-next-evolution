@@ -1,11 +1,19 @@
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { ArrowRight } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -13,13 +21,11 @@ const Navigation = () => {
         setIsOpen(false);
       }
     };
-
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
@@ -29,130 +35,130 @@ const Navigation = () => {
     setTimeout(() => {
       const target = document.querySelector(href);
       if (target) {
-        const navHeight = 64;
+        const navHeight = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({ top, behavior: "smooth" });
       }
     }, 100);
   };
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Products", href: "#projects" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "How We Work", href: "#how-we-work" },
+    { name: "Products", href: "#products" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-card/80 backdrop-blur-md border-b" ref={menuRef}>
-      <div className="container mx-auto px-4 max-w-full">
-        <div className="flex items-center justify-between h-16 gap-2">
-          {/* Logo only */}
-          <div className="flex-shrink-0 min-w-0">
+    <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center items-center px-3 sm:px-6">
+      <div
+        ref={menuRef}
+        className={`w-full max-w-4xl rounded-[26px] md:rounded-full border transition-all duration-300 ${
+          scrolled || isOpen
+            ? "bg-white/95 dark:bg-card/95 backdrop-blur-xl border-black/10 dark:border-white/10 shadow-lg shadow-black/5"
+            : "bg-white/90 dark:bg-card/90 backdrop-blur-md border-black/5 dark:border-white/5 shadow-md"
+        }`}
+      >
+        <div className="flex items-center justify-between px-3 sm:px-5 py-2 sm:py-2.5">
+          {/* Brand Logo */}
+          <a
+            href="#home"
+            onClick={(e) => handleSmoothScroll(e, "#home")}
+            className="flex items-center gap-2 pl-1 group"
+          >
             <img
               src="https://res.cloudinary.com/dppiuypop/image/upload/v1757152646/uploads/c8zrmasykfalqcqhahwc.png"
-              alt="SparcX Logo"
-              className="h-8 w-auto md:h-10"
+              alt="SPARCX Logo"
+              className="h-7 sm:h-8 w-auto object-contain group-hover:scale-105 transition-transform"
             />
-          </div>
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex flex-1 justify-center">
-            <div className="flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </div>
+          {/* Desktop Nav Links (CodeDale Pill Style) */}
+          <nav className="hidden md:flex items-center gap-1.5 text-sm font-medium text-foreground/80">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className="relative px-4 py-1.5 rounded-full text-xs lg:text-sm text-foreground/80 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-200"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <a href="#contact">
-              <Button variant="corporate" size="sm">
-                Get Started
-              </Button>
+          {/* Right Action CTA (CodeDale Pill Button) */}
+          <div className="flex items-center gap-2">
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-primary hover:bg-primary-light text-primary-foreground px-5 py-2 text-xs sm:text-sm font-semibold shadow-sm hover:shadow-elegant hover:scale-102 transition-all duration-300"
+            >
+              <span>Work With Us</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </a>
-          </div>
 
-          {/* Premium Mobile menu button */}
-          <div className="md:hidden">
+            {/* Mobile menu hamburger */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
-              className="relative w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary-light shadow-card flex items-center justify-center group hover:shadow-elegant transition-all duration-300 active:scale-95"
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-black/5 dark:bg-white/5 text-foreground hover:bg-black/10 transition-colors"
             >
-              <div className="relative w-4 h-4 flex flex-col justify-between">
-                <motion.span
-                  className="block h-[1.5px] w-full bg-primary-foreground rounded-full origin-center"
-                  animate={isOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+              <div className="w-4 h-3.5 flex flex-col justify-between">
+                <span
+                  className={`block h-0.5 w-full bg-foreground rounded-full transition-all duration-300 ${
+                    isOpen ? "rotate-45 translate-y-1.5" : ""
+                  }`}
                 />
-                <motion.span
-                  className="block h-[1.5px] w-full bg-primary-foreground rounded-full"
-                  animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2 }}
+                <span
+                  className={`block h-0.5 w-full bg-foreground rounded-full transition-all duration-300 ${
+                    isOpen ? "opacity-0" : ""
+                  }`}
                 />
-                <motion.span
-                  className="block h-[1.5px] w-full bg-primary-foreground rounded-full origin-center"
-                  animate={isOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                <span
+                  className={`block h-0.5 w-full bg-foreground rounded-full transition-all duration-300 ${
+                    isOpen ? "-rotate-45 -translate-y-1.5" : ""
+                  }`}
                 />
               </div>
             </button>
           </div>
         </div>
 
-        {/* Premium Mobile Navigation */}
+        {/* Mobile Dropdown */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="md:hidden overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="overflow-hidden md:hidden px-4 pb-4 pt-2 border-t border-border/50"
             >
-              <div className="px-3 pt-4 pb-5 space-y-1.5 bg-card/95 backdrop-blur-xl border-t border-border/50">
-                {navItems.map((item, idx) => (
-                  <motion.a
+              <div className="flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleSmoothScroll(e, item.href)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.06, duration: 0.3 }}
-                    className="block px-4 py-3 text-base font-medium text-muted-foreground hover:text-primary-foreground hover:bg-gradient-to-r hover:from-primary hover:to-primary-light rounded-xl transition-all duration-300 text-center shadow-sm hover:shadow-card"
+                    className="px-3.5 py-2 rounded-xl text-sm font-medium text-foreground/85 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                   >
                     {item.name}
-                  </motion.a>
-                ))}
-                <motion.div
-                  className="pt-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navItems.length * 0.06, duration: 0.3 }}
-                >
-                  <a href="#contact" onClick={(e) => handleSmoothScroll(e, "#contact")}>
-                    <Button variant="corporate" size="sm" className="w-full shadow-elegant">
-                      Get Started
-                    </Button>
                   </a>
-                </motion.div>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={(e) => handleSmoothScroll(e, "#contact")}
+                  className="mt-2 text-center rounded-xl bg-primary text-primary-foreground py-2.5 text-sm font-semibold shadow-sm"
+                >
+                  Work With Us
+                </a>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </nav>
+    </header>
   );
 };
 

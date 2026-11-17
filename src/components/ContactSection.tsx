@@ -1,5 +1,9 @@
 "use client";
 
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Mail,
   Phone,
@@ -7,6 +11,11 @@ import {
   Clock,
   Sparkles,
   CheckCircle2,
+  AlertCircle,
+  Loader2,
+  Send,
+  Linkedin,
+  MessageCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -16,59 +25,125 @@ const contactInfo = [
     label: "Email",
     value: "support@sparcx.in",
     href: "mailto:support@sparcx.in",
-    accent: "from-primary/20 to-primary/5",
   },
   {
     icon: Phone,
     label: "Phone",
     value: "+91 80197 92661",
     href: "tel:+918019792661",
-    accent: "from-accent/20 to-accent/5",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "India · Remote Worldwide",
+    value: "Hyderabad, India · Remote Worldwide",
     href: null,
-    accent: "from-primary/15 to-accent/10",
   },
   {
     icon: Clock,
-    label: "Response Time",
-    value: "Within 24 hours",
+    label: "Proposal Turnaround",
+    value: "Within 2–3 working days",
     href: null,
-    accent: "from-accent/15 to-primary/10",
   },
 ];
 
-const guarantees = [
-  "Free 30-min discovery call",
-  "NDA on request",
-  "Tailored proposal in 24h",
+const assurances = [
+  "Comprehensive requirement discovery",
+  "Non-disclosure agreement (NDA) on request",
+  "Proposal within 2–3 working days",
 ];
 
 const ContactSection = () => {
-  return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-32 w-[28rem] h-[28rem] bg-primary/15 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-1/4 -right-32 w-[32rem] h-[32rem] bg-accent/15 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1.5s" }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-      </div>
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error"; msg: string } | null>(null);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "Software Development",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+
+    // Validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus({
+        type: "error",
+        msg: "Please fill in all required fields (Name, Email, and Project Details).",
+      });
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("https://adepu-sanjay-svf9.vercel.app/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          project: formData.projectType,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          msg: "Thank you! Your inquiry has been received. Our team will review your requirements and provide a proposal within 2–3 working days.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          projectType: "Custom Software & Web Applications",
+          message: "",
+        });
+      } else {
+        window.location.href = `mailto:support@sparcx.in?subject=Project Inquiry: ${encodeURIComponent(
+          formData.projectType
+        )}&body=Name: ${encodeURIComponent(formData.name)}%0D%0APhone: ${encodeURIComponent(
+          formData.phone
+        )}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(
+          formData.message
+        )}`;
+        setStatus({
+          type: "success",
+          msg: "Opening your email client to send your inquiry directly to support@sparcx.in.",
+        });
+      }
+    } catch {
+      window.location.href = `mailto:support@sparcx.in?subject=Project Inquiry: ${encodeURIComponent(
+        formData.projectType
+      )}&body=Name: ${encodeURIComponent(formData.name)}%0D%0APhone: ${encodeURIComponent(
+        formData.phone
+      )}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(
+        formData.message
+      )}`;
+      setStatus({
+        type: "success",
+        msg: "Opening your email client to send your inquiry directly to support@sparcx.in.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section id="contact" className="relative py-24 bg-muted/30 overflow-hidden dashed-y-custom">
       <div className="container mx-auto px-4">
-        {/* Header */}
+        {/* Section Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
           initial={{ opacity: 0, y: 30 }}
@@ -76,129 +151,243 @@ const ContactSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-primary font-medium text-sm mb-5"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Sparkles className="h-4 w-4" />
-            Let's Connect
-          </motion.div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-            Let's Build Something{" "}
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Exceptional
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 text-accent font-medium text-xs tracking-wider uppercase mb-3.5">
+            <Sparkles className="h-3.5 w-3.5" />
+            Let's Discuss Your Project
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 tracking-tight text-foreground">
+            Connect With{" "}
+            <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
+              SPARCX Solutions
             </span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground text-justify md:text-center">
-            Tell us about your project. Reach out to us through any of the channels below and we'll get back within one business day with a tailored plan.
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            Tell us about your project requirements. We will analyze your scope and provide a structured proposal within 2–3 working days.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
-          {/* Contact Info Side Panel */}
+        <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-start">
+          {/* Left Panel: Direct Channels & Information (5 cols) */}
           <motion.div
-            className="h-full"
+            className="lg:col-span-5 space-y-6"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Premium hero card */}
-            <div className="relative overflow-hidden rounded-2xl p-8 md:p-10 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground shadow-elegant h-full flex flex-col justify-center">
-              {/* Decorative orbs */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary-foreground/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-accent/30 rounded-full blur-2xl" />
-              
-              <div className="relative">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-foreground/15 backdrop-blur-sm text-xs font-medium mb-6 w-max">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-foreground opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-foreground" />
-                  </span>
-                  Available for new projects
-                </div>
-                
-                <h3 className="text-3xl font-bold mb-4 leading-tight">Talk to our team</h3>
-                <p className="text-primary-foreground/85 text-base md:text-lg leading-relaxed mb-8 text-justify">
-                  Whether you have a clear spec or just an idea on a napkin — we'd love to hear from
-                  you and help shape it into something remarkable.
-                </p>
-                
-                <ul className="space-y-4 mt-auto">
-                  {guarantees.map((g, i) => (
-                    <motion.li
-                      key={g}
-                      className="flex items-center gap-3 text-base text-primary-foreground/95"
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 + i * 0.1 }}
-                    >
-                      <CheckCircle2 className="h-5 w-5 shrink-0" />
-                      {g}
-                    </motion.li>
-                  ))}
-                </ul>
+            <div className="rounded-[30px] p-7 sm:p-8 bg-card border border-border/80 shadow-xs">
+              <h3 className="text-xl sm:text-2xl font-bold mb-2.5 text-foreground">
+                Start a Conversation
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6 text-justify">
+                Whether you have an established technical specification or an emerging product idea, we are ready to discuss your goals and architect the right solution.
+              </p>
+
+              <ul className="space-y-3 mb-8">
+                {assurances.map((g) => (
+                  <li key={g} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90 font-medium">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                    <span>{g}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Direct channels (CodeDale Pill Buttons) */}
+              <div className="pt-6 border-t border-border flex flex-wrap gap-2.5">
+                <a
+                  href="https://wa.me/918019792661"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-semibold hover:bg-emerald-500/20 transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Chat on WhatsApp
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/sparcxsolutions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-semibold hover:bg-primary/20 transition-colors"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn Company
+                </a>
               </div>
+            </div>
+
+            {/* Quick Contact Cards */}
+            <div className="grid sm:grid-cols-2 gap-3.5">
+              {contactInfo.map((item) => (
+                <div
+                  key={item.label}
+                  className="p-4 rounded-2xl bg-card border border-border/80 text-left shadow-xs"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-2">
+                    <item.icon className="h-4 w-4" />
+                  </div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+                    {item.label}
+                  </div>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="text-xs font-bold text-foreground hover:text-primary transition-colors block truncate mt-0.5"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <div className="text-xs font-bold text-foreground truncate mt-0.5">
+                      {item.value}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Contact info cards Grid */}
+          {/* Right Panel: Functional Form (7 cols) */}
           <motion.div
-            className="grid sm:grid-cols-2 gap-4"
+            className="lg:col-span-7"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {contactInfo.map((item, idx) => {
-              const Inner = (
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="relative flex flex-col items-center text-center p-6 bg-card border border-border rounded-2xl hover:border-primary/40 hover:shadow-elegant transition-all duration-300 group h-full justify-center"
-                >
-                  {/* Hover gradient sheen */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${item.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}
-                  />
-                  
-                  <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-primary/15 to-accent/15 text-primary flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    <item.icon className="h-6 w-6" />
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
-                      {item.label}
-                    </div>
-                    <div className="text-base font-bold text-foreground">
-                      {item.value}
-                    </div>
-                  </div>
-                </motion.div>
-              );
+            <div className="rounded-[32px] p-8 sm:p-10 bg-card border border-border/80 shadow-md">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                Project Inquiry Form
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mb-6">
+                Tell us about your requirements, project scope, and preferred timeline.
+              </p>
 
-              return (
-                <motion.div
-                  key={item.label}
-                  className="h-full"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="text-xs font-semibold text-foreground/80">
+                      Full Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="rounded-xl bg-muted/40 border-border/80"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="text-xs font-semibold text-foreground/80">
+                      Email Address *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="you@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="rounded-xl bg-muted/40 border-border/80"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="phone" className="text-xs font-semibold text-foreground/80">
+                      Phone / WhatsApp Number
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="rounded-xl bg-muted/40 border-border/80"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label htmlFor="projectType" className="text-xs font-semibold text-foreground/80">
+                      Service Category *
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="w-full h-10 px-3 rounded-xl border border-border/80 bg-muted/40 text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    >
+                      <option>Software Development</option>
+                      <option>Embedded Digital Solutions</option>
+                      <option>AI Agents & Automations</option>
+                      <option>Other / Consulting</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label htmlFor="message" className="text-xs font-semibold text-foreground/80">
+                    Project Details & Scope *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={4}
+                    placeholder="Briefly describe your objectives, target timeline, and any existing systems or references…"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="rounded-xl bg-muted/40 border-border/80 resize-none text-xs sm:text-sm"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  variant="corporate"
+                  size="lg"
+                  className="w-full h-12 rounded-full text-sm font-semibold shadow-sm hover:shadow-elegant transition-all"
                 >
-                  {item.href ? (
-                    <a href={item.href} className="block h-full">
-                      {Inner}
-                    </a>
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Submitting Inquiry…
+                    </>
                   ) : (
-                    <div className="h-full">{Inner}</div>
+                    <>
+                      <Send className="mr-2 h-4 w-4" />
+                      Submit Project Inquiry
+                    </>
                   )}
-                </motion.div>
-              );
-            })}
+                </Button>
+
+                {status && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-3.5 rounded-xl text-xs sm:text-sm font-medium border flex items-start gap-2.5 ${
+                      status.type === "success"
+                        ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30"
+                        : "bg-destructive/10 text-destructive border-destructive/30"
+                    }`}
+                  >
+                    {status.type === "success" ? (
+                      <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-emerald-500" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-destructive" />
+                    )}
+                    <span>{status.msg}</span>
+                  </motion.div>
+                )}
+
+                <p className="text-[11px] text-muted-foreground text-center pt-2">
+                  Inquiries are treated with complete confidentiality. We will review your scope and provide a proposal within 2–3 working days.
+                </p>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -251,3 +251,31 @@ All colors MUST be HSL.
     transform: scale(1);
   }
 }
+
+/* CodeDale Signature Architectural Styles */
+.dashed-y-custom {
+  border-top: 1px dashed transparent;
+  border-bottom: 1px dashed transparent;
+  border-image: repeating-linear-gradient(90deg, #e5e7eb 0 10px, transparent 10px 20px) 1;
+}
+
+.dark .dashed-y-custom {
+  border-image: repeating-linear-gradient(90deg, #27272a 0 10px, transparent 10px 20px) 1;
+}
+
+.logo-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.filter-shadow {
+  filter: drop-shadow(-12px 6px 2px rgba(0, 0, 0, 0.03));
+}
+
+.codedale-dot-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.3px);
+  background-size: 24px 24px;
+}
+
+.dark .codedale-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.3px);
+}
