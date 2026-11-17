@@ -91,23 +91,21 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="py-24 bg-gradient-to-b from-muted/20 to-background animate-fade-in"
+      className="py-24 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden"
     >
+      <span id="products" className="block relative -top-24 invisible" />
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-slide-up">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-muted text-foreground font-medium text-sm mb-4">
-              Our Portfolio
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent font-medium text-xs tracking-wider uppercase mb-4">
+              🚀 Our Products & Solutions
             </div>
-            <h2 className="mb-6">
-              Featured <span className="text-primary">Projects</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+              Featured <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Products & Innovations</span>
             </h2>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Explore our latest work showcasing innovative solutions across web
-              applications, mobile apps, and enterprise systems. Each project
-              represents our commitment to excellence and cutting-edge
-              technology.
+              Explore our cutting-edge digital products and scalable platforms—engineered with precision to solve real-world problems.
             </p>
           </div>
 

@@ -82,7 +82,7 @@ const services: Service[] = [
 
 const ServicesSection = () => {
   const autoplay = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   return (

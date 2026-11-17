@@ -104,7 +104,7 @@ const TechStackSection = () => {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-secondary/30 via-secondary/20 to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-secondary/30 via-secondary/20 to-transparent z-10" />
 
-        <div className="flex w-max animate-marquee gap-6 px-4 py-4">
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-6 px-4 py-4">
           {loop.map((tech, i) => (
             <div
               key={`row1-${tech.name}-${i}`}
@@ -133,7 +133,7 @@ const TechStackSection = () => {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-secondary/30 via-secondary/20 to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-secondary/30 via-secondary/20 to-transparent z-10" />
 
-        <div className="flex w-max animate-marquee-reverse gap-6 px-4 py-4">
+        <div className="flex w-max animate-marquee-reverse hover:[animation-play-state:paused] gap-6 px-4 py-4">
           {loop.map((tech, i) => (
             <div
               key={`row2-${tech.name}-${i}`}

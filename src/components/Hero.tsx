@@ -1,32 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Sparkles, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-tech.png";
 
-
-const floatingLogos = [
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React", className: "top-[8%] -left-4 w-12 h-12 md:w-14 md:h-14", delay: 0 },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "Node.js", className: "top-[20%] -right-2 w-12 h-12 md:w-14 md:h-14", delay: 0.4 },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript", className: "bottom-[28%] -left-6 w-11 h-11 md:w-12 md:h-12", delay: 0.8 },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", alt: "MongoDB", className: "bottom-[10%] -right-4 w-12 h-12 md:w-14 md:h-14", delay: 1.2 },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", alt: "Docker", className: "top-[45%] -right-8 w-11 h-11 md:w-12 md:h-12", delay: 0.6 },
-];
-
-const trustBadges = [
-  { icon: ShieldCheck, label: "Production-Grade Quality" },
-  { icon: Zap, label: "Lightning-Fast Delivery" },
-  { icon: Sparkles, label: "Pixel-Perfect Design" },
+const impactBadges = [
+  { icon: ShieldCheck, label: "Enterprise Reliability" },
+  { icon: Zap, label: "Scalable Architecture" },
+  { icon: Sparkles, label: "Real-World Impact" },
 ];
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] flex items-center pt-24 pb-16 overflow-hidden">
       {/* Premium ambient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-[28rem] h-[28rem] bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 -z-10 pointer-events-none">
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: "6s" }}
+        />
+        <div
+          className="absolute bottom-1/4 -right-32 w-[28rem] h-[28rem] bg-accent/15 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: "8s" }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
               "radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)",
@@ -36,7 +33,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Content */}
           <motion.div
             className="space-y-8"
@@ -44,114 +41,150 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* Premium badge */}
+            {/* Status Pill Badge */}
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/60 backdrop-blur-sm shadow-sm"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md shadow-sm"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
               </span>
-              <span className="text-xs font-medium text-foreground/80 tracking-wide">
-                Available for new projects
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                SPARCX SOLUTIONS · EMPOWERING INNOVATION
               </span>
             </motion.div>
 
-            <div className="space-y-4">
-              <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                We Build{" "}
-                <span className="text-foreground">Modern, Scalable</span>{" "}
-                Web Solutions
-              </h1>
-              <p className="text-sm md:text-base lg:text-xl text-muted-foreground leading-relaxed text-justify">
-                As a dedicated team of full stack developers, we create reliable,
-                high-performance digital products tailored to your goals. From backend
-                APIs to modern user interfaces, we engineer every layer with precision.
-              </p>
+            {/* Headline */}
+            <div className="space-y-5">
+              <motion.h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+              >
+                Building Technology.
+                <br />
+                <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
+                  Creating Impact.
+                </span>
+              </motion.h1>
+
+              <motion.p
+                className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl text-justify sm:text-left"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+              >
+                SPARCX Solutions develops innovative software, intelligent digital solutions, and scalable products that solve real-world problems.
+              </motion.p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#services">
-                <Button variant="corporate" size="lg" className="group hover-glow w-full sm:w-auto">
-                  Explore Our Process
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
-              <a href="#projects">
-                <Button variant="outline" size="lg" className="group hover-lift w-full sm:w-auto">
-                  <Play className="mr-2 h-4 w-4" />
-                  View Our Work
-                </Button>
-              </a>
-            </div>
-
-            {/* Trust badges */}
             <motion.div
-              className="flex flex-wrap gap-x-5 gap-y-2 pt-2"
+              className="flex flex-col sm:flex-row gap-4 pt-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+            >
+              <a href="#projects">
+                <Button
+                  variant="corporate"
+                  size="lg"
+                  className="group shadow-elegant hover:shadow-glow transition-all px-8 py-6 text-base font-semibold w-full sm:w-auto"
+                >
+                  Explore Our Products
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform duration-300" />
+                </Button>
+              </a>
+              <a href="#contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-border hover:bg-accent/10 hover:border-accent hover:text-accent transition-all px-8 py-6 text-base font-semibold w-full sm:w-auto"
+                >
+                  <Sparkles className="mr-2 h-4 w-4 text-accent" />
+                  Work With Us
+                </Button>
+              </a>
+            </motion.div>
+
+            {/* Value / Trust Badges */}
+            <motion.div
+              className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-3 border-t border-border/60"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              {trustBadges.map((b) => (
-                <div key={b.label} className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
-                  <b.icon className="h-4 w-4 text-accent" />
-                  <span>{b.label}</span>
+              {impactBadges.map((badge) => (
+                <div key={badge.label} className="flex items-center gap-2 text-xs sm:text-sm font-medium text-muted-foreground">
+                  <badge.icon className="h-4 w-4 text-accent" />
+                  <span>{badge.label}</span>
                 </div>
               ))}
             </motion.div>
-
           </motion.div>
 
-          {/* Hero Image with floating tech logos */}
+          {/* Right Hero Graphic Showcase */}
           <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="relative lg:pl-6"
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
+            {/* Ambient Backlight Glow */}
+            <div className="absolute -top-10 -right-10 w-72 h-72 bg-gradient-accent rounded-full blur-3xl opacity-30 -z-10" />
+            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-25 -z-10" />
+
+            {/* Main Visual Card */}
             <motion.div
-              className="relative rounded-2xl overflow-hidden"
-              animate={{ y: [0, -12, 0] }}
+              className="relative rounded-3xl overflow-hidden border border-border/80 bg-card/50 backdrop-blur-sm p-4 sm:p-6 shadow-elegant"
+              animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
               <img
                 src={heroImage}
-                alt="Full stack development tech stack illustration"
-                className="w-full h-auto object-contain drop-shadow-2xl"
+                alt="SPARCX Solutions technology and digital innovation"
+                className="w-full h-auto object-contain rounded-2xl drop-shadow-xl"
                 width={1024}
                 height={1024}
               />
-            </motion.div>
 
-            {/* Floating tech logos */}
-            {floatingLogos.map((logo) => (
+              {/* Floating Feature Glass Badges */}
               <motion.div
-                key={logo.alt}
-                className={`absolute ${logo.className} bg-card/90 backdrop-blur-md rounded-2xl shadow-card p-2 flex items-center justify-center border border-border`}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  opacity: { delay: logo.delay, duration: 0.5 },
-                  scale: { delay: logo.delay, duration: 0.5, type: "spring" },
-                  y: { duration: 3 + logo.delay, repeat: Infinity, ease: "easeInOut", delay: logo.delay },
-                }}
-                whileHover={{ scale: 1.15, rotate: 8 }}
+                className="absolute top-8 left-6 bg-card/90 backdrop-blur-md border border-border rounded-xl px-4 py-2.5 shadow-card hidden sm:flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <img src={logo.src} alt={logo.alt} className="w-full h-full object-contain" loading="lazy" />
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                  <Sparkles className="h-4 w-4" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-foreground">Intelligent Solutions</div>
+                  <div className="text-[10px] text-muted-foreground">Purpose-built for impact</div>
+                </div>
               </motion.div>
-            ))}
 
-            {/* Glow blobs */}
-            <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-accent rounded-full blur-3xl opacity-30 -z-10"></div>
-            <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-gradient-primary rounded-full blur-3xl opacity-20 -z-10"></div>
+              <motion.div
+                className="absolute bottom-8 right-6 bg-card/90 backdrop-blur-md border border-border rounded-xl px-4 py-2.5 shadow-card hidden sm:flex items-center gap-3"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-foreground">Scalable Products</div>
+                  <div className="text-[10px] text-muted-foreground">Engineered to grow</div>
+                </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -160,4 +193,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
