@@ -6,12 +6,12 @@ import {
   Bot,
   ArrowRight,
   CheckCircle2,
-  Terminal,
-  Activity,
-  Workflow,
-  Server,
   Layers,
-  Sparkles,
+  Shield,
+  Zap,
+  Globe,
+  CircuitBoard,
+  BrainCircuit,
 } from "lucide-react";
 
 interface ServiceItem {
@@ -22,9 +22,10 @@ interface ServiceItem {
   tagline: string;
   description: string;
   icon: React.ElementType;
-  image: string;
   capabilities: { title: string; desc: string }[];
-  metrics: { label: string; value: string }[];
+  highlights: { icon: React.ElementType; label: string; value: string }[];
+  technologies: string[];
+  deliverables: string[];
 }
 
 const services: ServiceItem[] = [
@@ -37,7 +38,6 @@ const services: ServiceItem[] = [
     description:
       "We design and engineer bespoke software architectures tailored to your operational workflows. From high-availability web applications to complex multi-tenant backend systems, we build scalable, secure, and maintainable software products.",
     icon: Code2,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     capabilities: [
       {
         title: "Tailored Web Applications",
@@ -56,11 +56,13 @@ const services: ServiceItem[] = [
         desc: "Structured relational and NoSQL data modeling with optimized caching and query performance.",
       },
     ],
-    metrics: [
-      { label: "Architecture", value: "Modular & Scalable" },
-      { label: "Security", value: "Role-Based Auth & Encryption" },
-      { label: "Deployment", value: "CI/CD & Cloud-Ready" },
+    highlights: [
+      { icon: Layers, label: "Architecture", value: "Modular & Scalable" },
+      { icon: Shield, label: "Security", value: "Role-Based Auth & Encryption" },
+      { icon: Zap, label: "Deployment", value: "CI/CD & Cloud-Ready" },
     ],
+    technologies: ["React", "Next.js", "Node.js", "Python", "PostgreSQL", "MongoDB", "AWS", "Docker"],
+    deliverables: ["Production-ready web application", "API documentation", "Admin dashboard", "Deployment pipeline"],
   },
   {
     id: "embedded-digital-solutions",
@@ -71,7 +73,6 @@ const services: ServiceItem[] = [
     description:
       "We bridge physical hardware with cloud intelligence. We build connected digital systems that ingest sensor data, monitor physical assets, and deliver real-time control through centralized digital interfaces.",
     icon: Cpu,
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800",
     capabilities: [
       {
         title: "IoT Telemetry & Monitoring",
@@ -90,11 +91,13 @@ const services: ServiceItem[] = [
         desc: "Automated trigger systems that translate real-world physical thresholds into instant digital alerts and workflows.",
       },
     ],
-    metrics: [
-      { label: "Data Pipeline", value: "Real-Time Telemetry" },
-      { label: "Connectivity", value: "MQTT / WebSockets / Cloud" },
-      { label: "Monitoring", value: "Asset Tracking & Control" },
+    highlights: [
+      { icon: Globe, label: "Data Pipeline", value: "Real-Time Telemetry" },
+      { icon: CircuitBoard, label: "Connectivity", value: "MQTT / WebSockets / Cloud" },
+      { icon: Shield, label: "Monitoring", value: "Asset Tracking & Control" },
     ],
+    technologies: ["Arduino", "Raspberry Pi", "ESP32", "MQTT", "WebSockets", "Node.js", "Python", "Firebase"],
+    deliverables: ["Connected hardware prototype", "Telemetry dashboard", "Alert & notification system", "Integration APIs"],
   },
   {
     id: "ai-agents-automation",
@@ -105,7 +108,6 @@ const services: ServiceItem[] = [
     description:
       "We develop task-oriented AI agents and business automation pipelines that execute complex multi-step processes, analyze data, and eliminate manual bottlenecks across your organization.",
     icon: Bot,
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
     capabilities: [
       {
         title: "Autonomous Task Agents",
@@ -124,11 +126,13 @@ const services: ServiceItem[] = [
         desc: "Domain-specific AI assistants grounded in your proprietary organizational knowledge base.",
       },
     ],
-    metrics: [
-      { label: "Execution", value: "Autonomous & Multi-Step" },
-      { label: "Integration", value: "Custom API & Tool Calling" },
-      { label: "Efficiency", value: "Zero Manual Bottlenecks" },
+    highlights: [
+      { icon: BrainCircuit, label: "Execution", value: "Autonomous & Multi-Step" },
+      { icon: Zap, label: "Integration", value: "Custom API & Tool Calling" },
+      { icon: Layers, label: "Efficiency", value: "Zero Manual Bottlenecks" },
     ],
+    technologies: ["Python", "LangChain", "OpenAI", "Gemini", "FastAPI", "Vector DBs", "n8n", "Custom Agents"],
+    deliverables: ["Custom AI agent deployment", "Automation pipeline", "Knowledge base integration", "Performance reports"],
   },
 ];
 
@@ -146,7 +150,7 @@ const WhatWeDoSection = () => {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[320px] bg-primary/10 rounded-full blur-[110px] pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4">
-        {/* Section Header with Reduced Balanced Font Size */}
+        {/* Section Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
           initial={{ opacity: 0, y: 30 }}
@@ -168,7 +172,7 @@ const WhatWeDoSection = () => {
           </p>
         </motion.div>
 
-        {/* CodeDale-Style Navigation Switcher */}
+        {/* Tab Switcher */}
         <div className="max-w-3xl mx-auto mb-10">
           <div className="flex flex-col sm:flex-row items-center justify-center p-1.5 rounded-[22px] bg-muted/60 border border-border/80 shadow-xs gap-1.5">
             {services.map((service) => {
@@ -179,7 +183,7 @@ const WhatWeDoSection = () => {
                 <button
                   key={service.id}
                   onClick={() => setActiveTab(service.id)}
-                  className={`w-full sm:w-1/3 flex items-center justify-center gap-2 px-3 py-2.5 rounded-[16px] text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                  className={`w-full sm:w-1/3 flex items-center justify-center gap-2 px-3 py-2.5 rounded-[16px] text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
                     isActive
                       ? "bg-card text-foreground shadow-sm border border-border/80 text-primary"
                       : "text-muted-foreground hover:text-foreground hover:bg-card/40"
@@ -193,7 +197,7 @@ const WhatWeDoSection = () => {
           </div>
         </div>
 
-        {/* Professional Deep-Dive Showcase Container */}
+        {/* Service Detail Showcase */}
         <div className="max-w-6xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -202,13 +206,13 @@ const WhatWeDoSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35 }}
-              className="rounded-[30px] sm:rounded-[36px] bg-card border border-border/80 shadow-md overflow-hidden p-6 sm:p-9 lg:p-10 relative"
+              className="rounded-[28px] sm:rounded-[32px] bg-card border border-border/80 shadow-md overflow-hidden p-6 sm:p-8 lg:p-10 relative"
             >
               {/* Background ambient lighting */}
               <div className="absolute top-0 right-0 size-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-              <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-                {/* Left Column: Description & Strategic Pillars (7 cols) */}
+              <div className="grid lg:grid-cols-12 gap-8 lg:gap-10">
+                {/* Left Column: Description & Capabilities */}
                 <div className="lg:col-span-7 space-y-5">
                   <div className="flex items-center gap-3">
                     <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center p-2.5 shadow-xs">
@@ -232,8 +236,8 @@ const WhatWeDoSection = () => {
                     {activeService.description}
                   </p>
 
-                  {/* Capabilities Breakdown Grid */}
-                  <div className="grid sm:grid-cols-2 gap-3.5 pt-1">
+                  {/* Capabilities */}
+                  <div className="grid sm:grid-cols-2 gap-3 pt-1">
                     {activeService.capabilities.map((cap) => (
                       <div
                         key={cap.title}
@@ -250,10 +254,10 @@ const WhatWeDoSection = () => {
                     ))}
                   </div>
 
-                  {/* Action CTA */}
+                  {/* CTA */}
                   <div className="pt-2 flex items-center gap-4">
                     <a href="#contact">
-                      <button className="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-light text-primary-foreground font-semibold text-xs sm:text-sm shadow-sm hover:shadow-elegant transition-all flex items-center gap-2">
+                      <button className="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-light text-primary-foreground font-semibold text-xs sm:text-sm shadow-sm hover:shadow-elegant transition-all flex items-center gap-2 cursor-pointer">
                         <span>Consult on {activeService.title}</span>
                         <ArrowRight className="h-3.5 w-3.5" />
                       </button>
@@ -261,141 +265,65 @@ const WhatWeDoSection = () => {
                   </div>
                 </div>
 
-                {/* Right Column: Visual Preview Card with Relevant Imagery & Interactive System View (5 cols) */}
-                <div className="lg:col-span-5 space-y-4">
-                  {/* High-Quality Relevant Image Banner */}
-                  <div className="relative h-44 sm:h-52 w-full rounded-[22px] overflow-hidden border border-border/80 shadow-xs bg-muted">
-                    <img
-                      src={activeService.image}
-                      alt={activeService.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                      <span className="text-xs font-bold tracking-wide">
-                        {activeService.badge}
-                      </span>
-                      <span className="text-[10px] font-mono opacity-80 px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md">
-                        Production Stack
-                      </span>
+                {/* Right Column: Professional Highlights Panel */}
+                <div className="lg:col-span-5 space-y-5">
+                  {/* Key Highlights */}
+                  <div className="rounded-2xl border border-border/80 bg-muted/30 p-5 space-y-4">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-primary">
+                      Key Highlights
+                    </h4>
+                    <div className="space-y-3">
+                      {activeService.highlights.map((h) => {
+                        const HIcon = h.icon;
+                        return (
+                          <div key={h.label} className="flex items-start gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                              <HIcon className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wide">
+                                {h.label}
+                              </div>
+                              <div className="text-xs font-bold text-foreground">
+                                {h.value}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  {/* Dynamic Technical Simulator Mockup */}
-                  <div className="rounded-[22px] bg-muted/50 border border-border p-5 shadow-inner">
-                    {activeService.id === "software-development" && (
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-border/70 text-xs">
-                          <div className="flex items-center gap-2">
-                            <Terminal className="h-3.5 w-3.5 text-primary" />
-                            <span className="font-mono font-bold text-foreground text-[11px]">
-                              api.sparcx.internal/v1
-                            </span>
-                          </div>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                            200 OK
-                          </span>
-                        </div>
+                  {/* Technology Stack */}
+                  <div className="rounded-2xl border border-border/80 bg-muted/30 p-5 space-y-3">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-primary">
+                      Technology Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {activeService.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-lg bg-card border border-border/80 text-[11px] font-semibold text-foreground/80"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-                        <div className="p-3 rounded-xl bg-card border border-border font-mono text-[10.5px] text-muted-foreground space-y-1">
-                          <div className="text-primary font-semibold">// Cloud Endpoint</div>
-                          <div><span className="text-accent">const</span> service = <span className="text-accent">await</span> initCluster();</div>
-                          <div className="text-foreground">dispatch(&#123; status: &quot;active&quot; &#125;);</div>
-                        </div>
-
-                        <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                          <div className="p-2 rounded-lg bg-card border border-border">
-                            <div className="text-[9px] text-muted-foreground uppercase font-bold">Uptime</div>
-                            <div className="font-bold text-foreground text-[11px]">99.98%</div>
-                          </div>
-                          <div className="p-2 rounded-lg bg-card border border-border">
-                            <div className="text-[9px] text-muted-foreground uppercase font-bold">Latency</div>
-                            <div className="font-bold text-foreground text-[11px]">&lt; 38ms</div>
-                          </div>
-                          <div className="p-2 rounded-lg bg-card border border-border">
-                            <div className="text-[9px] text-muted-foreground uppercase font-bold">Scaling</div>
-                            <div className="font-bold text-foreground text-[11px]">Auto</div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {activeService.id === "embedded-digital-solutions" && (
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-border/70 text-xs">
-                          <div className="flex items-center gap-2">
-                            <Activity className="h-3.5 w-3.5 text-accent" />
-                            <span className="font-mono font-bold text-foreground text-[11px]">
-                              IoT Telemetry Stream
-                            </span>
-                          </div>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-primary/10 text-primary border border-primary/20 flex items-center gap-1">
-                            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                            Live Ingestion
-                          </span>
-                        </div>
-
-                        <div className="space-y-1.5 text-xs">
-                          <div className="p-2.5 rounded-xl bg-card border border-border flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Server className="h-3.5 w-3.5 text-primary" />
-                              <span className="text-[11px] font-semibold text-foreground">Edge Controller 01</span>
-                            </div>
-                            <span className="font-mono text-emerald-600 text-[10px] font-bold">Active</span>
-                          </div>
-
-                          <div className="p-2.5 rounded-xl bg-card border border-border flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Cpu className="h-3.5 w-3.5 text-accent" />
-                              <span className="text-[11px] font-semibold text-foreground">Sensor Stream Array</span>
-                            </div>
-                            <span className="font-mono text-[10px] font-bold text-foreground">120 pkt/s</span>
-                          </div>
-                        </div>
-
-                        <div className="p-2 rounded-lg bg-card border border-border text-center text-[10px] text-muted-foreground font-semibold">
-                          Connected: MQTT · WebSockets · Cloud Ingestion
-                        </div>
-                      </div>
-                    )}
-
-                    {activeService.id === "ai-agents-automation" && (
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-border/70 text-xs">
-                          <div className="flex items-center gap-2">
-                            <Workflow className="h-3.5 w-3.5 text-primary" />
-                            <span className="font-mono font-bold text-foreground text-[11px]">
-                              Agent Orchestration
-                            </span>
-                          </div>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-primary/10 text-primary border border-primary/20">
-                            Agent Active
-                          </span>
-                        </div>
-
-                        <div className="space-y-1.5 text-[11px]">
-                          <div className="p-2 rounded-lg bg-card border border-border flex items-center gap-2">
-                            <span className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[9px]">1</span>
-                            <span className="text-foreground font-medium">Trigger Payload Received</span>
-                          </div>
-
-                          <div className="p-2 rounded-lg bg-card border border-primary/40 flex items-center gap-2">
-                            <span className="size-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-[9px]">2</span>
-                            <span className="text-primary font-semibold">Autonomous Reasoning & Tool Execution</span>
-                          </div>
-
-                          <div className="p-2 rounded-lg bg-card border border-border flex items-center gap-2">
-                            <span className="size-5 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[9px]">3</span>
-                            <span className="text-foreground font-medium">Verified Action & Database Sync</span>
-                          </div>
-                        </div>
-
-                        <div className="p-2 rounded-lg bg-card border border-border text-center text-[10px] text-muted-foreground font-semibold">
-                          Automated Multi-Step Agent Execution
-                        </div>
-                      </div>
-                    )}
+                  {/* What You Receive */}
+                  <div className="rounded-2xl border border-border/80 bg-muted/30 p-5 space-y-3">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-primary">
+                      What You Receive
+                    </h4>
+                    <ul className="space-y-2">
+                      {activeService.deliverables.map((d) => (
+                        <li key={d} className="flex items-center gap-2 text-xs text-foreground/85">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
+                          <span className="font-medium">{d}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
