@@ -1,4 +1,4 @@
-import { ArrowRight, Code2, Cpu, Bot, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -60,19 +60,6 @@ const Hero = () => {
                 </button>
               </a>
             </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 pt-2 text-[11px] sm:text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> Custom Software
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-accent" /> Embedded & IoT
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> AI Agents
-              </span>
-            </div>
           </motion.div>
 
           {/* Right Column — Professional Image Composition */}
@@ -98,60 +85,6 @@ const Hero = () => {
                   }}
                 />
               </div>
-
-              {/* Floating Stat Card — Top Right */}
-              <motion.div
-                className="absolute -top-3 -right-3 sm:top-2 sm:-right-5 p-3 sm:p-3.5 rounded-2xl bg-card border border-border/80 shadow-lg backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                    <Code2 className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-muted-foreground font-medium">Software</div>
-                    <div className="text-xs font-bold text-foreground">Full-Cycle Dev</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating Stat Card — Bottom Left */}
-              <motion.div
-                className="absolute -bottom-3 -left-3 sm:bottom-8 sm:-left-5 p-3 sm:p-3.5 rounded-2xl bg-card border border-border/80 shadow-lg backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.65 }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
-                    <Cpu className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-muted-foreground font-medium">Embedded</div>
-                    <div className="text-xs font-bold text-foreground">IoT & Hardware</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating Stat Card — Bottom Right */}
-              <motion.div
-                className="absolute -bottom-3 right-6 sm:bottom-2 sm:right-10 p-3 sm:p-3.5 rounded-2xl bg-card border border-border/80 shadow-lg backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                    <Bot className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-muted-foreground font-medium">AI Agents</div>
-                    <div className="text-xs font-bold text-foreground">Autonomous AI</div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
 

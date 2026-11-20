@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, Clock, ArrowRight, Layers } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 const OurProductsSection = () => {
   return (
@@ -25,19 +25,7 @@ const OurProductsSection = () => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-            <div className="absolute top-3 left-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/90 backdrop-blur-md text-foreground border border-border/70 text-[10px] font-semibold">
-                <Layers className="h-3 w-3 text-primary" />
-                Proprietary R&amp;D
-              </span>
-            </div>
           </div>
-
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/10 text-accent font-medium text-[11px] tracking-wider uppercase mb-3.5">
-            <Clock className="h-3 w-3" />
-            Product Innovation Lab
-          </div>
-
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-3 text-foreground">
             Our Products —{" "}
             <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
