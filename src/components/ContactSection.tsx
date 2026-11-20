@@ -9,7 +9,6 @@ import {
   Phone,
   MapPin,
   Clock,
-  Sparkles,
   CheckCircle2,
   AlertCircle,
   Loader2,
@@ -151,10 +150,6 @@ const ContactSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 text-accent font-medium text-xs tracking-wider uppercase mb-3.5">
-            <Sparkles className="h-3.5 w-3.5" />
-            Let's Discuss Your Project
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 tracking-tight text-foreground">
             Connect With{" "}
             <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">

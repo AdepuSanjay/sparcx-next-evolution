@@ -9,7 +9,6 @@ const steps = [
     description:
       "We begin by thoroughly reviewing your operational goals, technical constraints, and user needs to establish a clear project scope without assumptions.",
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600",
-    badge: "Discovery",
   },
   {
     step: "02",
@@ -18,7 +17,6 @@ const steps = [
     description:
       "We design the technical architecture, project roadmap, and transparent deliverables, providing a clear proposal within 2–3 working days.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600",
-    badge: "Architecture",
   },
   {
     step: "03",
@@ -27,7 +25,6 @@ const steps = [
     description:
       "We build your application following modern engineering practices, maintaining open communication and sharing regular milestone demonstrations.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600",
-    badge: "Engineering",
   },
   {
     step: "04",
@@ -36,7 +33,6 @@ const steps = [
     description:
       "We handle deployment to production, verify performance across devices, and offer continued post-launch support and maintenance.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
-    badge: "Rollout",
   },
 ];
 
@@ -88,12 +84,6 @@ const HowWeWorkSection = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-                  
-                  {/* Badge */}
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-background/90 backdrop-blur-md text-foreground border border-border/70">
-                    {item.badge}
-                  </span>
-
                   {/* Icon */}
                   <div className="absolute bottom-2 right-2.5 size-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center shadow-xs">
                     <item.icon className="h-4 w-4" />
@@ -115,13 +105,6 @@ const HowWeWorkSection = () => {
                     <p className="text-xs text-muted-foreground leading-relaxed text-justify">
                       {item.description}
                     </p>
-                  </div>
-
-                  <div className="pt-3 mt-3 border-t border-border/60">
-                    <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      Phase {item.step} Deliverable
-                    </span>
                   </div>
                 </div>
               </motion.div>
